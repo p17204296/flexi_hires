@@ -16,10 +16,10 @@
 <div id="logo"><a href="index.html"><img src="assets/images/logo_land.png" width="224" height="97"></a></div>
 
 <div id="nav">
-		<ul>	
+		<ul>
 			<li><a href="index.html">Home</a></li>
 			<li><a href="about.html">Register/Login</a></li>
-		<ul>	
+		<ul>
 </div>
 
 
@@ -28,7 +28,9 @@
 
 <div id="wrapper">
 
-<div id="hm_head"><h3>Flexi Hires is your go to freelancing platform </h3> </div>
+<div id="hm_head">
+	<h3>Flexi Hires is your go to freelancing platform </h3>
+</div>
 <table id="table1" cellspacing="40">
 	<tr>
 		<td><p>Hire our talented freelancers today!</p><button>Get Started!</button></td>
