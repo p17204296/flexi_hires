@@ -1,23 +1,64 @@
 <?php include('partials/header.php'); ?>
 
-<div id="wrapper">
+<!-- Category Search Section Starts-->
+	<section class="cat-search text-align-center">
+		<div class="container">
+			<div class="bg-wrapper">
+				<div class="bg-container">
+					<div class="bg2-div">
+						<!-- <img src="images/bg-2.png" alt="Flexi-Hires Logo" class="bg2" > -->
+					</div>
+				</div>
+			</div>
+			<form class="" action="index.html" method="post">
+				<input type="search" name="search" placeholder="Try 'web development' ">
+				<input type="submit" name="submit" value="Search" class="btn btn-primary-col">
+			</form>
+		</div>
+	</section>
+<!-- Category Search Section Ends -->
 
-<div id="hm_head">
-	<h3>Flexi Hires is your go to freelancing platform </h3>
-</div>
-<table id="table1" cellspacing="40">
-	<tr>
-		<td><p>Hire our talented freelancers today!</p><button>Get Started!</button></td>
-		<td><h3>IMAGE</h3></td>
-	</tr>
-</table>
+<!-- Category Section Starts-->
+	<section class="categories">
+		<div class="container">
+			<h2 class="text-align-center">Categories</h2>
 
-<table id="table1" cellspacing="40">
-	<tr>
-		<td><h3 class="Home">IMAGE</h3> <p class="p1"></p> </td>
-		<td><h3 class="About">IMAGE</h3> </td>
-		<td><h3 class="Contact">IMAGE</h3><p class="p2"></p> </td>
-	</tr>
-</table>
+			<div class="cat-boxes float-container">
+				<img src="assets/images/seo@2x.webp" alt="SEO Category" class="responsive-img curve-img">
+				<h3 class="cat-deco float-text purple-text ">SEO Category</h3>
+			</div>
+			<div class="cat-boxes float-container">
+				<img src="assets/images/videography@1x.jpg" alt="videography Category" class="responsive-img">
+
+			</div>
+			<div class="cat-boxes float-container">
+				<img src="assets/images/content-writing@2x.webp" alt="Content Writing Category" class="responsive-img">
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</section>
+<!-- Category Section Ends -->
+
+<!-- Explore Section Starts-->
+	<section class="explore-section">
+		<div class="container">
+			<h2 class="text-align-center">Explore Categories</h2>
+			<div class="explore-boxes">
+				Box 1
+			</div>
+			<div class="explore-boxes">
+				Box 2
+			</div>
+			<div class="explore-boxes">
+				Box 3
+			</div>
+			<div class="explore-boxes">
+				Box 4
+			</div>
+
+		</div>
+		<div class="clearfix"></div>
+	</section>
+<!-- Explore Section Ends -->
 
 <?php include('partials/footer.php'); ?>

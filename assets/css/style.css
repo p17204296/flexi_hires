@@ -1,0 +1,288 @@
+/*
+  Author: P17204296
+  Version: 1.0
+*/
+
+
+/* MOBILE AND GLOBAL STYLES */
+
+/* applies to screens smaller than 500px (first breakpoint) */
+/* and above unless overwritten below */
+*{
+    margin: 0 0;
+    padding: 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #fcc;
+}
+
+h2{
+  font-size: 2rem;
+  color: #2d3436;
+}
+
+.container{
+  border: 1px solid red;
+  width: 80%;
+  margin: 0 auto;
+  padding: 1%;
+}
+
+.float-container{
+  position: relative;
+}
+.float-text{
+  position: absolute;
+  left: 24%;
+  bottom: 50px;
+}
+
+.purple-text{
+  color: #6c5ce7;
+}
+
+.clearfix{ /* Prevents Overflow */
+  clear: both;
+  float: none;
+}
+/* Navbar CSS */
+.logo{
+  border: 1px solid black;
+  width: 15%;
+  float: left;
+}
+
+.responsive-img{ /* Enambles responsive movement for images */
+  width: 100%;
+}
+
+.curve-img{
+  border-radius: 12px;
+}
+
+.text-align-center{
+  text-align: center;
+}
+.right-align-text{
+  text-align: right;
+}
+
+
+a{
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a{
+  line-height: 70px;
+  padding: 1%;
+}
+nav a:hover{
+  color: green;
+}
+
+.btn{
+  cursor: pointer;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  padding: 1%;
+}
+
+.btn-primary-col{
+  background-color: skyblue;
+}
+
+.btn-primary-col:hover{
+  background-color: blue;
+  color: white;
+}
+
+/* Category Seach Section */
+
+.bg-wrapper{
+  position: relative;
+  margin: 0 auto 48px;
+}
+@media only screen and (min-width: 900px){
+  .bg2-div{
+  background-image: url(../images/bg-2.png);
+  /* background-image: url(../images/bg-2.png); */
+  background-position: 100% 100%;
+  display: flex;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  padding: 14% 0;
+  z-index: -10;
+}
+}
+.cat-search input[type="search"]{
+  width: 30%;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  padding: 1%;
+  margin-bottom:3%;
+}
+
+/* Categories Section */
+
+.categories{
+  padding: 4% 0;
+}
+vb
+.cat-boxes{
+  margin: 1.6%;
+  border: 2px solid black;
+  float: left;
+  width: 29%;S
+}
+
+.cat-deco{
+  font-size: 1.5rem;
+  border: 1px solid red;
+  border-radius: 6px;
+  background-color: white;
+}
+
+
+
+
+
+
+
+/* LAB 4 CODE STARTS HERE */
+
+/*
+body {
+  background: #fcc;
+}
+
+
+nav {
+  display: flex;
+  flex-direction: : collumn;
+
+    /* more custom styles /
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transform: translateX(100vw);
+    transition: 0.5s;
+
+}
+
+nav a {
+  background-color: #9485d3;
+  color: white;
+  padding: 0.25em 7.9em;
+  margin: 0.43em;
+}
+
+nav.open {
+  display: flex;
+  background-color: yellow;
+  /* more custom styles /
+  transform: translateX(0);
+
+}
+
+#menuToggler{
+  font-size: 44px;
+  padding: 0.05em;
+  /* more custom styles /
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+ */
+
+
+/* TABLET STYLES */
+
+@media screen and (min-width: 500px) {
+
+  /* applies to screens wider than 499px */
+  body {
+    background: #cfc;
+  }
+  /* body {
+    background: #cfc;
+  }
+
+ nav {
+  display: flex;
+  flex-direction: column; */
+
+  /* more custom styles */
+
+  /* position: fixed;
+  width: 100%;
+  top: 0;
+  transform: translateX(100vw);
+  transition: 0.5s;
+}
+
+  nav.open {
+    transform: translateX(0);
+  } */
+
+  /* #menuToggler {
+     display: none;
+   } /
+
+  #menuToggler {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    /* more custom styles /
+  }
+
+  /* From above */
+/*
+  nav {
+    display: flex;
+    flex-direction: : collumn;
+  }
+
+  nav a {
+    background-color: #9485d3;
+    color: white;
+    padding: 0.25em 7.9em;
+    margin: 0.43em;
+  }
+
+  #menuToggler{
+    font-size: 44px;
+    padding: 0.05em;
+  }
+  nav.open {
+    display: flex;
+    background-color: yellow;
+  } */
+
+
+}
+
+
+
+/* DESKTOP STYLES */
+
+@media screen and (min-width: 1000px) {
+
+  /* applies to screens wider than 999px */
+
+  body {
+    background: #ccf;
+  }
+
+
+
+}
