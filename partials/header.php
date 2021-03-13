@@ -1,6 +1,7 @@
 <?php
 include('config/constants.php'); //Connection to database
 include('config/router.php');
+
 ?>
 
 <!DOCTYPE html>
