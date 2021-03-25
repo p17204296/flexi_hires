@@ -1,6 +1,7 @@
 /*
   Author: P17204296
   Version: 1.0
+  Font Colours From: https://flatuicolors.com/palette/us
 */
 
 
@@ -41,6 +42,18 @@ h2{
 
 .purple-text{
   color: #6c5ce7;
+}
+
+.blue-text{
+  color: blue;
+}
+
+.green-text{
+  color: #00b894;
+}
+
+.red-text{
+  color: #d63031;
 }
 
 .clearfix{ /* Prevents Overflow */

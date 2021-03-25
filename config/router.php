@@ -1,5 +1,7 @@
 <?php
 
+$loggedIn=false;
+
 $username=$fname=$sname=$email=$password=$address=$dob="";
 
 $passwordError = "";
@@ -12,6 +14,9 @@ if(isset($_POST["register"])){
 
   //Define input field variables
 	$username=row($_POST["username"]);
+	$clientID=row($_POST["clientID"]);
+	$freelancerID=row($_POST["freelancerID"]);
+
 	$fname=row($_POST["fname"]);
   $sname=row($_POST["sname"]);
 	$email=row($_POST["email"]);
@@ -25,6 +30,9 @@ if(isset($_POST["register"])){
   if ($password!==$repassword){
       $errors=$errors+1;
       $passwordError="Password does not match";
+    }if($username==$password) {
+      $errors=$errors+1;
+      $passwordError="Username and Password cannot be the same. Please Try Again.";
     }
 //Error handling for usertype
 if ($usertype=='') {
@@ -45,13 +53,11 @@ if ($errors==0) {
 			$result = $conn->query($sql);
 			if($result==true){
 				$_SESSION["Username"]=$username;
+				$_SESSION["Username"]=$username;
 				$_SESSION["Usertype"]=1;
-        header("location: index.php");
-        echo "Hello $fname <br />";
-
-				// header("location: freelancersProfile.php");
+        $_SESSION["loggedIn"]=true;
+				header("location: editFreelancerProfile.php");
 			}
-
 		}
 	}
   //Users who Register as Clients
@@ -68,10 +74,8 @@ if ($errors==0) {
 			if($result==true){
 				$_SESSION["Username"]=$username;
 				$_SESSION["Usertype"]=2;
-        header("location: index.php");
-        echo "Hello $fname <br />";
-
-				// header("location: clientsProfile.php");
+				header("location: editClientProfile.php");
+        $loggedIn=true;
 			}
 
 		}
@@ -98,25 +102,23 @@ if(isset($_POST["login"])){
   		if($result->num_rows == 1){
   			$_SESSION["Username"]=$username;
   			$_SESSION["Usertype"]=1;
+        $loggedIn=true;
   			unset($_SESSION["errorMsg"]);
-        header("location: index.php");
-        echo "Hello $fname <br />";
-  			// header("location: freelancersProfile.php");
+        // header("location: loginReg.php");
+  			header("location: freelancersProfile.php");
   		}
   		else{
   			$_SESSION["errorMsg"]="username/password is incorrect";
   		}
   	}
-    	else{
+    	elseif ($usertype=="clients") {
     		$sql = "SELECT * FROM clients WHERE username = '$username' AND password = '$password'";
     		$result = $conn->query($sql);
     		if($result->num_rows == 1){
     			$_SESSION["Username"]=$username;
     			$_SESSION["Usertype"]=2;
     			unset($_SESSION["errorMsg"]);
-          header("location: index.php");
-          echo "Hello $fname <br />";
-    			// header("location: clientsProfile.php");
+    			header("location: clientsProfile.php");
     		}
     		else{
     			$_SESSION["errorMsg"]="username/password is incorrect";
