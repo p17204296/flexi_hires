@@ -9,11 +9,11 @@ else{
 
 if(isset($_POST["pid"])){
 	$_SESSION["projectID"]=$_POST["pid"];
-	header("location: jobDetails.php");
+	header("location: projectDetails.php");
 }
 
-if(isset($_POST["f_user"])){
-	$_SESSION["f_user"]=$_POST["f_user"];
+if(isset($_POST["viewFreelancer"])){
+	$_SESSION["viewFreelancer"]=$_POST["viewFreelancer"];
 	header("location: viewFreelancer.php");
 }
 
@@ -45,33 +45,29 @@ $result = $conn->query($sql);
 <!--main body-->
 <div class="container">
 
-<!--Column 1-->
-	<div class="col-lg-3">
-
 <!--Main profile card-->
-		<div class="card" style="padding:20px 20px 5px 20px;margin-top:20px">
-			<p></p>
+		<div class="card welcome-panel">
 			<h2>Hello! <?php echo "$fname $sname"; ?></h2>
-			<p><span class="glyphicon glyphicon-user"></span> <?php echo "Username: $username"; ?></p>
-			<ul class="list-group">
-				<a href="postJob.php" class="list-group-item list-group-item-info">Post a job offer</a>
-	        <a href="editClientProfile.php" class="list-group-item list-group-item-info">Edit Profile</a>
-			  	<a href="message.php" class="list-group-item list-group-item-info">Messages</a>
-			  	<a href="logout.php" class="list-group-item list-group-item-info">Logout</a>
-	        </ul>
+			<p class="panel-body"><?php echo "Username: $username"; ?></p>
+			<div class="card panel-body">
+				<a href="postJob.php" class="tomato-hover">Post a job offer</a>
+	        <a href="editClientProfile.php" class="tomato-hover">Edit Profile</a>
+			  	<a href="message.php" class="tomato-hover">Messages</a>
+			  	<a href="logout.php" class="tomato-hover">Logout</a>
+				</div>
 	    </div>
 <!--End Main profile card-->
 
 <!--Contact Information-->
-		<div class="card" style="padding:20px 20px 5px 20px;margin-top:20px">
-			<div class="panel panel-success">
+		<div class="card">
+			<div class="panel">
 			  <div class="panel-heading"><h4>Contact Information</h4></div>
 			</div>
-			<div class="panel panel-success">
+			<div class="panel">
 			  <div class="panel-heading">Email</div>
 			  <div class="panel-body"><?php echo $email; ?></div>
 			</div>
-			<div class="panel panel-success">
+			<div class="panel">
 			  <div class="panel-heading">Address</div>
 			  <div class="panel-body"><?php echo $address; ?></div>
 			</div>
@@ -79,29 +75,23 @@ $result = $conn->query($sql);
 <!--End Contact Information-->
 
 <!--Reputation-->
-		<div class="card" style="padding:20px 20px 5px 20px;margin-top:20px">
-			<div class="panel panel-warning">
+		<div class="card">
+			<div class="panel">
 			  <div class="panel-heading"><h3 class="blue-text">Reputation</h3></div>
 			</div>
-			<div class="panel panel-warning">
+			<div class="panel">
 			  <div class="panel-heading"><h4>Reviews</h4></div>
-			  <div class="panel-body">Nothing to show</div>
+			  <div class="panel-body">No Information Available...</div>
 			</div>
-			<div class="panel panel-warning">
+			<div class="panel">
 			  <div class="panel-heading"><h4>Ratings</h4></div>
-			  <div class="panel-body">Nothing to show</div>
+			  <div class="panel-body">No Information Available...</div>
 			</div>
 		</div>
 <!--End Reputation-->
 
-	</div>
-<!--End Column 1-->
-
-<!--Column 2-->
-	<div class="col-lg-7">
-
 <!--clients Profile Details-->
-		<div class="card" style="padding:20px 20px 5px 20px;margin-top:20px">
+		<div class="card" style="">
 			<div class="panel panel-primary">
 			  <div class="panel-heading"><h3 class="blue-text">Client Profile Details</h3></div>
 			</div>
@@ -122,7 +112,7 @@ $result = $conn->query($sql);
 			  <div class="panel-body"><h4>
                   <table style="width:100%">
                       <tr>
-                          <td>Job Id</td>
+                          <td>Project ID</td>
                           <td>Project Title</td>
                           <td>Posted on</td>
                       </tr>
@@ -139,7 +129,7 @@ $result = $conn->query($sql);
                                 <input type="hidden" name="pid" value="'.$projectID.'">
                                     <tr>
                                     <td>'.$projectID.'</td>
-                                    <td><input type="submit" class="btn btn-link btn-lg" value="'.$projectTitle.'"></td>
+                                    <td><input type="submit" class="btn" value="'.$projectTitle.'"></td>
                                     <td>'.$timestamp.'</td>
                                     </tr>
                                 </form>
@@ -147,7 +137,7 @@ $result = $conn->query($sql);
 
                                 }
                         } else {
-                            echo "<tr><td>Nothing to show</td></tr>";
+                            echo "<tr><td>No Information Available...</td></tr>";
                         }
 
                        ?>
@@ -159,7 +149,7 @@ $result = $conn->query($sql);
 			  <div class="panel-body"><h4>
                   <table style="width:100%">
                       <tr>
-                          <td>Job Id</td>
+                          <td>Project ID</td>
                           <td>Project Title</td>
                           <td>Posted on</td>
                       </tr>
@@ -178,7 +168,7 @@ $result = $conn->query($sql);
                                 <input type="hidden" name="pid" value="'.$projectID.'">
                                     <tr>
                                     <td>'.$projectID.'</td>
-                                    <td><input type="submit" class="btn btn-link btn-lg" value="'.$projectTitle.'"></td>
+                                    <td><input type="submit" class="btn" value="'.$projectTitle.'"></td>
                                     <td>'.$timestamp.'</td>
                                     </tr>
                                 </form>
@@ -186,7 +176,7 @@ $result = $conn->query($sql);
 
                                 }
                         } else {
-                            echo "<tr><td>Nothing to show</td></tr>";
+                            echo "<tr><td>No Information Available...</td></tr>";
                         }
 
                        ?>
@@ -198,7 +188,7 @@ $result = $conn->query($sql);
 			  <div class="panel-body"><h4>
                   <table style="width:100%">
                       <tr>
-                          <td>Job Id</td>
+                          <td>Project ID</td>
                           <td>Project Title</td>
                           <td>Freelancer Details</td>
                       </tr>
@@ -218,11 +208,11 @@ $result = $conn->query($sql);
                                 <input type="hidden" name="pid" value="'.$projectID.'">
                                     <tr>
                                     <td>'.$projectID.'</td>
-                                    <td><input type="submit" class="btn btn-link btn-lg" value="'.$projectTitle.'"></td>
+                                    <td><input type="submit" class="btn" value="'.$projectTitle.'"></td>
                                     </form>
                                     <form action="clientsProfile.php" method="post">
-                                    <input type="hidden" name="f_user" value="'.$f_username.'">
-                                    <td><input type="submit" class="btn btn-link btn-lg" value="'.$f_username.'"></td>
+                                    <input type="hidden" name="viewFreelancer" value="'.$f_username.'">
+                                    <td><input type="submit" class="btn" value="'.$f_username.'"></td>
                                     <td>'.$timestamp.'</td>
                                     </tr>
                                 </form>
@@ -230,7 +220,7 @@ $result = $conn->query($sql);
 
                                 }
                         } else {
-                            echo "<tr><td>Nothing to show</td></tr>";
+                            echo "<tr><td>No Information Available...</td></tr>";
                         }
 
                        ?>
@@ -242,7 +232,7 @@ $result = $conn->query($sql);
 			  <div class="panel-body"><h4>
                   <table style="width:100%">
                       <tr>
-                          <td>Job Id</td>
+                          <td>Project ID</td>
                           <td>Project Title</td>
                           <td>Freelancer Details</td>
                       </tr>
@@ -262,11 +252,11 @@ $result = $conn->query($sql);
                                 <input type="hidden" name="pid" value="'.$projectID.'">
                                     <tr>
                                     <td>'.$projectID.'</td>
-                                    <td><input type="submit" class="btn btn-link btn-lg" value="'.$projectTitle.'"></td>
+                                    <td><input type="submit" class="btn" value="'.$projectTitle.'"></td>
                                     </form>
                                     <form action="clientsProfile.php" method="post">
-                                    <input type="hidden" name="f_user" value="'.$f_username.'">
-                                    <td><input type="submit" class="btn btn-link btn-lg" value="'.$f_username.'"></td>
+                                    <input type="hidden" name="viewFreelancer" value="'.$f_username.'">
+                                    <td><input type="submit" class="btn" value="'.$f_username.'"></td>
                                     <td>'.$timestamp.'</td>
                                     </tr>
                                 </form>
@@ -274,7 +264,7 @@ $result = $conn->query($sql);
 
                                 }
                         } else {
-                            echo "<tr><td>Nothing to show</td></tr>";
+                            echo "<tr><td>No Information Available...</td></tr>";
                         }
 
                        ?>
@@ -284,9 +274,8 @@ $result = $conn->query($sql);
 		</div>
 <!--End Clients Profile Details-->
 
-	</div>
-<!--End Column 2-->
-
 
 </div>
 <!--End main body-->
+
+<?php include('partials/footer.php');

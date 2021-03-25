@@ -12,8 +12,8 @@ if(isset($_POST["pid"])){
 	header("location: jobDetails.php");
 }
 
-if(isset($_POST["e_user"])){
-	$_SESSION["e_user"]=$_POST["e_user"];
+if(isset($_POST["viewClient"])){
+	$_SESSION["viewClient"]=$_POST["viewClient"];
 	header("location: viewClient.php");
 }
 
@@ -41,35 +41,30 @@ if ($result->num_rows > 0) {
 
  ?>
 
-<!--main body-->
 <div class="container">
 
-<!--Column 1-->
-	<div class="col-lg-3">
-
 <!--Main profile card-->
-		<div class="card" style="padding:20px 20px 5px 20px;margin-top:20px">
-			<p></p>
+		<div class="card welcome-panel">
 			<h2>Welcome! <?php echo "$fname $sname"; ?></h2>
-			<p><span class="glyphicon glyphicon-user"></span> <?php echo "Username: $username; Minimum Rate: £$minimumRate perhour"; ?></p>
-				<ul class="list-group">
-		        <a href="editFreelancerProfile.php" class="">Edit Profile</a>
-				  	<a href="message.php" class="">Messages</a>
-				  	<a href="logout.php" class="">Logout</a>
-		    </ul>
-	    </div>
+			<p class="panel-body"> <?php echo "Username: $username; Minimum Rate: £$minimumRate perhour"; ?></p>
+			<div class="card panel-body">
+			  <a href="editFreelancerProfile.php" class="tomato-hover">Edit Profile</a>
+		  	<a href="message.php" class="tomato-hover">Messages</a>
+		  	<a href="logout.php" class="tomato-hover">Logout</a>
+			</div>
+	  </div>
 <!--End Main profile card-->
 
 <!--Contact Information-->
-		<div class="card" style="padding:20px 20px 5px 20px;margin-top:20px">
-			<div class="panel panel-success">
+		<div class="card">
+			<div class="panel">
 			  <div class="panel-heading"><h3 class="blue-text">Contact Information</h3></div>
 			</div>
-			<div class="panel panel-success">
+			<div class="panel">
 			  <div class="panel-heading"><h4>Email</h4></div>
 			  <div class="panel-body"><?php echo $email; ?></div>
 			</div>
-			<div class="panel panel-success">
+			<div class="panel">
 			  <div class="panel-heading"><h4>Address</h4></div>
 			  <div class="panel-body"><?php echo $address; ?></div>
 			</div>
@@ -77,29 +72,23 @@ if ($result->num_rows > 0) {
 <!--End Contact Information-->
 
 <!--Reputation-->
-		<div class="card" style="padding:20px 20px 5px 20px;margin-top:20px">
-			<div class="panel panel-warning">
+		<div class="card">
+			<div class="panel">
 			  <div class="panel-heading"><h3 class="blue-text">Reputation</h3></div>
 			</div>
-			<div class="panel panel-warning">
+			<div class="panel">
 			  <div class="panel-heading"><h4>Reviews</h4></div>
-			  <div class="panel-body">Nothing to show</div>
+			  <div class="panel-body">No Information Available...</div>
 			</div>
-			<div class="panel panel-warning">
+			<div class="panel">
 			  <div class="panel-heading"><h4>Ratings</h4></div>
-			  <div class="panel-body">Nothing to show</div>
+			  <div class="panel-body">No Information Available...</div>
 			</div>
 		</div>
 <!--End Reputation-->
 
-	</div>
-<!--End Column 1-->
-
-<!--Column 2-->
-	<div class="col-lg-7">
-
 <!--Freelancer Profile Details-->
-		<div class="card" style="padding:20px 20px 5px 20px;margin-top:20px">
+		<div class="card">
 			<div class="panel panel-primary">
 			  <div class="panel-heading"><h3 class="blue-text">Freelancer Profile Details</h3></div>
 			</div>
@@ -126,7 +115,7 @@ if ($result->num_rows > 0) {
 			  <div class="panel-body"><h3>
                   <table style="width:100%">
                       <tr>
-                          <td>Job Id</td>
+                          <td>Project ID</td>
                           <td>Project Title</td>
                           <td>Client Details</td>
                       </tr>
@@ -146,11 +135,11 @@ if ($result->num_rows > 0) {
                                 <input type="hidden" name="pid" value="'.$projectID.'">
                                     <tr>
                                     <td>'.$projectID.'</td>
-                                    <td><input type="submit" class="btn btn-link btn-lg" value="'.$projectTitle.'"></td>
+                                    <td><input type="submit" class="btn" value="'.$projectTitle.'"></td>
                                     </form>
                                     <form action="ClientProfile.php" method="post">
-                                    <input type="hidden" name="e_user" value="'.$c_username.'">
-                                    <td><input type="submit" class="btn btn-link btn-lg" value="'.$c_username.'"></td>
+                                    <input type="hidden" name="viewClient" value="'.$c_username.'">
+                                    <td><input type="submit" class="btn" value="'.$c_username.'"></td>
                                     <td>'.$timestamp.'</td>
                                     </tr>
                                 </form>
@@ -158,7 +147,7 @@ if ($result->num_rows > 0) {
 
                                 }
                         } else {
-                            echo "<tr><td>Nothing to show</td></tr>";
+                            echo "<tr><td>No Information Available...</td></tr>";
                         }
 
                        ?>
@@ -170,7 +159,7 @@ if ($result->num_rows > 0) {
 			  <div class="panel-body"><h3>
                   <table style="width:100%">
                       <tr>
-                          <td>Job Id</td>
+                          <td>Project ID</td>
                           <td>Project Title</td>
                           <td>Client Details</td>
                       </tr>
@@ -190,11 +179,11 @@ if ($result->num_rows > 0) {
                                 <input type="hidden" name="pid" value="'.$projectID.'">
                                     <tr>
                                     <td>'.$projectID.'</td>
-                                    <td><input type="submit" class="btn btn-link btn-lg" value="'.$projectTitle.'"></td>
+                                    <td><input type="submit" class="btn" value="'.$projectTitle.'"></td>
                                     </form>
                                     <form action="freelancerProfile.php" method="post">
-                                    <input type="hidden" name="e_user" value="'.$c_username.'">
-                                    <td><input type="submit" class="btn btn-link btn-lg" value="'.$c_username.'"></td>
+                                    <input type="hidden" name="viewClient" value="'.$c_username.'">
+                                    <td><input type="submit" class="btn" value="'.$c_username.'"></td>
                                     <td>'.$timestamp.'</td>
                                     </tr>
                                 </form>
@@ -202,7 +191,7 @@ if ($result->num_rows > 0) {
 
                                 }
                         } else {
-                            echo "<tr><td>Nothing to show</td></tr>";
+                            echo "<tr><td>No Information Available...</td></tr>";
                         }
 
                        ?>
@@ -212,9 +201,8 @@ if ($result->num_rows > 0) {
 		</div>
 <!--End Freelancer Profile Details-->
 
-	</div>
-<!--End Column 2-->
-
 </div>
 <!--End main body-->
+
+
 <?php include('partials/footer.php');
