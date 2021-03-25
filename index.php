@@ -1,4 +1,6 @@
-<?php include('partials/indexHeader.php');?>
+<?php include('partials/indexHeader.php');
+
+?>
 
 	<!-- Category Search Section Starts-->
 	<section class="text-align-center main-content-index">
