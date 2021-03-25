@@ -16,7 +16,7 @@ include('config/router.php');
   <body>
 
       <!-- NavBar Section Starts -->
-        <section class="container">
+        <section class="bg-wrapper container">
           <div class="navbar">
           <img src="assets/images/logo2.png" alt="Flexi-Hires Logo" class="logo">
               <div id="menuToggler">&#8801;</div>
