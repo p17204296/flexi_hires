@@ -2,6 +2,49 @@
 include('config/constants.php'); //Connection to database
 include('config/router.php');
 
+
+// if(isset($_SESSION["Username"]) && $_SESSION["Usertype"]==1){
+//
+//   $sql = "SELECT * FROM freelancers WHERE username='$username'";
+//   $result = $conn->query($sql);
+//   if ($result->num_rows > 0) {
+//       // output data of each row
+//       while($row = $result->fetch_assoc()) {
+//   				$clientID=$row["clientID"];
+//   				$fname=$row["fname"];
+//   				$sname=$row["sname"];
+//   				$email=$row["email"];
+//   				$address=$row["address"];
+//   				$dob=$row["dob"];
+//   				$profile_sum=$row["profileSummary"];
+//       }
+//   } else {
+//       echo "0 results";
+//   }
+//
+// }
+// else if (isset($_SESSION["Username"]) && $_SESSION["Usertype"]==2){
+//
+//   $sql = "SELECT * FROM clients WHERE username='$username'";
+//   $result = $conn->query($sql);
+//   if ($result->num_rows > 0) {
+//       // output data of each row
+//       while($row = $result->fetch_assoc()) {
+//   				$clientID=$row["clientID"];
+//   				$fname=$row["fname"];
+//   				$sname=$row["sname"];
+//   				$email=$row["email"];
+//   				$address=$row["address"];
+//   				$dob=$row["dob"];
+//   				$profile_sum=$row["profileSummary"];
+//           $companyName=$row["companyName"];
+//       }
+//   } else {
+//       echo "0 results";
+//   }
+//
+// }
+
 ?>
 
 <!DOCTYPE html>
@@ -15,47 +58,5 @@ include('config/router.php');
   </head>
   <body>
 
-      <!-- NavBar Section Starts -->
-        <section class="bg-wrapper container">
-          <div class="navbar">
-          <img src="assets/images/logo2.png" alt="Flexi-Hires Logo" class="logo">
-              <div id="menuToggler">&#8801;</div>
-              <?php
-                //Check if User in LoggedIn
-                if (!isset($_SESSION["Username"])){ //If not Logged in Then DO..   ?>
-                  <nav class="right-align-text">
-                    <a href='index.php'>Home</a>
-                    <a href='#'>Blog</a>
-                    <a href='#'>Gallery</a>
-                    <a href='#'>Contact</a>
-                    <a href='loginReg.php'>Register/LogIn</a>
-                  </nav>
-            <?php
-              //Check if User Logged In is a Freelancer
-              }else if (isset($_SESSION["Username"]) && $_SESSION["Usertype"]==1){ //If Logged in Then DO...
-            ?>
-                <nav class="right-align-text">
-                  <a href='index.php'>Home</a>
-                  <a href='#'>Browse Jobs</a>
-                  <a href='#'>Gallery</a>
-                  <a href='#'>Contact</a>
-                  <a href='freelancersProfile.php'>My Profile</a>
-                  <a href='logout.php'>Logout</a>
-                </nav>
-            <?php
-              //Check if User Logged In is a Client
-              }else if (isset($_SESSION["Username"]) && $_SESSION["Usertype"]==2){ //If Logged in Then DO...?>
-                <nav class="right-align-text">
-                  <a href='index.php'>Home</a>
-                  <a href='#'>Explore Freelancers</a>
-                  <a href='#'>Gallery</a>
-                  <a href='#'>Contact</a>
-                  <a href='clientsProfile.php'>My Profile</a>
-                  <a href='logout.php'>Logout</a>
-                </nav>
-            <?php
-              }
-            ?>
-              <div class="clearfix"></div>
-            </div>
-            <!-- NavBar Section Ends -->
+    <section class="bg-wrapper container">
+      <?php include('nav.php');  ?>
