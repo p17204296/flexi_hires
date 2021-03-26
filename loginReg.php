@@ -3,27 +3,27 @@
 
 ?>
 
-<section class="">
-  <div class="container">
+<section class="container">
+  <div class="">
     <div class="form-reglogin">
       <h2>Login</h2>
       <form id="loginForm" method="post" class="">
         <p style="color:red;"><?php echo $errorMsg; ?></p>
-        <div class="form-group">
+        <div class="">
           <label class="">Username</label>
           <div class="">
-            <input type="text" class="form-control" name="username" required />
+            <input type="text" class="" name="username" required />
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="">
           <label class="">Password</label>
           <div class="">
-            <input type="password" class="form-control" name="password" required />
+            <input type="password" class="" name="password" required />
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="">
           <label class="">I am a: </label>
           <p style="color:red;"><?php echo  $userLoginError ?></p>
           <div class="">
@@ -40,7 +40,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="">
           <div class="">
             <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
             <button type="submit" name="login" class="btn">Login</button>
@@ -56,64 +56,64 @@
       <h2>Register</h2>
       <form id="registrationForm" method="post" class="">
         <p style="color:red;"><?php echo $errorMsg2; ?></p>
-        <div class="form-group">
+        <div class="">
           <label class="regLogin-label">Username</label>
           <div class="">
-            <input type="text" class="form-control" name="username" value="<?php echo $username; ?>" required />
+            <input type="text" class="" name="username" value="<?php echo $username; ?>" required />
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="">
           <label class="regLogin-label">First Name</label>
           <div class="">
-            <input type="text" class="form-control" name="fname" value="<?php echo $fname; ?>" required />
+            <input type="text" class="" name="fname" value="<?php echo $fname; ?>" required />
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="">
           <label class="">Surname</label>
           <div class="">
-            <input type="text" class="form-control" name="sname" value="<?php echo $sname; ?>" required />
+            <input type="text" class="" name="sname" value="<?php echo $sname; ?>" required />
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="">
           <label class="">Email Address</label>
           <div class="">
-            <input type="text" class="form-control" name="email" value="<?php echo $email; ?>" required />
+            <input type="text" class="" name="email" value="<?php echo $email; ?>" required />
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="">
           <label class="">Password</label>
           <div class="">
-            <input type="password" class="form-control" name="password" value="<?php echo $password; ?>" required />
+            <input type="password" class="" name="password" value="<?php echo $password; ?>" required />
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="">
           <label class="">Retype Password</label>
           <p style="color:red;"><?php echo  $passwordError ?></p>
           <div class="">
-            <input type="password" class="form-control" name="repassword" required />
+            <input type="password" class="" name="repassword" required />
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="">
           <label class="">Address</label>
           <div class="">
-            <input type="text" class="form-control" name="address" value="<?php echo $address; ?>" required />
+            <input type="text" class="" name="address" value="<?php echo $address; ?>" required />
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="">
           <label class="">Date of birth</label>
           <div class="">
-            <input type="date" class="form-control" name="dob" value="<?php echo $dob; ?>" placeholder="YYYY-MM-DD" />
+            <input type="date" class="" name="dob" value="<?php echo $dob; ?>" placeholder="YYYY-MM-DD" />
           </div>
         </div>
         <br>
-        <div class="form-group">
+        <div class="">
           <label class="">I am a:</label>
           <p style="color:red;"><?php echo  $userRegError ?></p>
           <div class="">
@@ -130,7 +130,7 @@
           </div>
         </div>
         <br>
-        <div class="form-group">
+        <div class="">
           <div class="">
             <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
             <button type="submit" name="register" class="btn">Sign up</button>

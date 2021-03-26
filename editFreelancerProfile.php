@@ -56,88 +56,86 @@ if(isset($_POST["editfreelancer"])){
 
 ?>
 
-<section class="container">
-	<div class="form-editProfile">
+<section class="container form-editProfile">
 		<h2>Edit Profile</h2>
-		<form id="registrationForm" method="post" class="form-horizontal">
-			<div class="form-group">
+		<form id="registrationForm" method="post" class="">
+			<div class="">
 				<label class="">First Name</label>
 				<div class="">
-					<input type="text" class="form-control" name="fname" value="<?php echo $fname; ?>" />
+					<input type="text" class="" name="fname" value="<?php echo $fname; ?>" />
 				</div>
 			</div>
 
-			<div class="form-group">
+			<div class="">
 				<label class="">Surname</label>
 				<div class="">
-					<input type="text" class="form-control" name="sname" value="<?php echo $sname; ?>" />
+					<input type="text" class="" name="sname" value="<?php echo $sname; ?>" />
 				</div>
 			</div>
 
-			<div class="form-group">
+			<div class="">
 				<label class="">Email address</label>
 				<div class="">
-					<input type="text" class="form-control" name="email" value="<?php echo $email; ?>" />
+					<input type="text" class="" name="email" value="<?php echo $email; ?>" />
 				</div>
 			</div>
 
-			<div class="form-group">
+			<div class="">
 				<label class="">Address</label>
 				<div class="">
-					<input type="text" class="form-control" name="address" value="<?php echo $address; ?>" />
+					<input type="text" class="" name="address" value="<?php echo $address; ?>" />
 				</div>
 			</div>
 
-			<div class="form-group">
+			<div class="">
 				<label class="">Date of birth</label>
 				<div class="">
-					<input type="date" class="form-control" name="dob" value="<?php echo $dob; ?>" />
+					<input type="date" class="" name="dob" value="<?php echo $dob; ?>" />
 				</div>
 			</div>
 
-			<div class="form-group">
+			<div class="">
 				<label class="">Profile Summary</label>
 				<div class="">
-					<input type="text" class="form-control" name="profileSummary" value="<?php echo $profile_sum; ?>" />
+					<textarea class="" rows="12" name="profileSummary"> <?php echo $profile_sum; ?></textarea>
 				</div>
 			</div>
 
-			<div class="form-group">
+			<div class="">
 				<label class="">Skills</label>
 				<div class="">
-					<input type="text" class="form-control" name="skills" value="<?php echo $skills; ?>" />
+					<input type="text" class="" name="skills" value="<?php echo $skills; ?>" />
 				</div>
 			</div>
 
-			<div class="form-group">
+			<div class="">
 				<label class="">Experience</label>
 				<div class="">
-					<input type="text" class="form-control" name="experience" value="<?php echo $experience; ?>" />
+					<input type="text" class="" name="experience" value="<?php echo $experience; ?>" />
 				</div>
 			</div>
 
-			<div class="form-group">
+			<div class="">
 				<label class="">Education</label>
 				<div class="">
-					<input type="text" class="form-control" name="education" value="<?php echo $education; ?>" />
+					<input type="text" class="" name="education" value="<?php echo $education; ?>" />
 				</div>
 			</div>
 
-			<div class="form-group">
+			<div class="">
 				<label class="">Minimum Rate (£)</label>
 				<div class="">
-					<input type="text" class="form-control" name="minimumRate" value="<?php echo $minimumRate; ?>" />
+					<input type="text" class="" name="minimumRate" value="<?php echo $minimumRate; ?>" />
 				</div>
 			</div>
 
 			<br>
-			<div class="form-group">
+			<div class="">
 				<!-- Do NOT use name="submit" or id="submit" for the Submit button -->
-				<button type="submit" name="editfreelancer" class="btn btn-info btn-lg">Save changes</button>
+				<button type="submit" name="editfreelancer" class="btn">Save changes</button>
 			</div>
 		</form>
 
-	</div>
 </section>
 
 <?php include('partials/footer.php'); ?>

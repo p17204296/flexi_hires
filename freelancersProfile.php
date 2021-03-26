@@ -58,15 +58,15 @@ if ($result->num_rows > 0) {
 <!--Contact Information-->
 		<div class="card">
 			<div class="panel">
-			  <div class="panel-heading"><h3 class="blue-text">Contact Information</h3></div>
+			 <h3 class="panel-heading blue-text">Contact Information</h3>
 			</div>
 			<div class="panel">
-			  <div class="panel-heading"><h4>Email</h4></div>
-			  <div class="panel-body"><?php echo $email; ?></div>
+			  <h4 class="panel-heading">Email</h4>
+			  <p class="panel-body"><?php echo $email; ?></p>
 			</div>
 			<div class="panel">
-			  <div class="panel-heading"><h4>Address</h4></div>
-			  <div class="panel-body"><?php echo $address; ?></div>
+			 	<h4 class="panel-heading">Address</h4>
+			  <p class="panel-body"><?php echo $address; ?></p>
 			</div>
 		</div>
 <!--End Contact Information-->
@@ -74,45 +74,45 @@ if ($result->num_rows > 0) {
 <!--Reputation-->
 		<div class="card">
 			<div class="panel">
-			  <div class="panel-heading"><h3 class="blue-text">Reputation</h3></div>
+				<h3 class="panel-heading blue-text">Reputation</h3>
 			</div>
 			<div class="panel">
-			  <div class="panel-heading"><h4>Reviews</h4></div>
-			  <div class="panel-body">No Information Available...</div>
+			  <h4 class="panel-heading">Reviews</h4>
+			  <p class="panel-body">No Information Available...</p>
 			</div>
 			<div class="panel">
-			  <div class="panel-heading"><h4>Ratings</h4></div>
-			  <div class="panel-body">No Information Available...</div>
+			 	<h4 class="panel-heading">Ratings</h4>
+			  <p class="panel-body">No Information Available...</p>
 			</div>
 		</div>
 <!--End Reputation-->
 
 <!--Freelancer Profile Details-->
 		<div class="card">
-			<div class="panel panel-primary">
-			  <div class="panel-heading"><h3 class="blue-text">Freelancer Profile Details</h3></div>
+			<div class="panel">
+			 <h3 class="panel-heading blue-text">Freelancer Profile Details</h3>
 			</div>
-			<div class="panel panel-primary">
-			  <div class="panel-heading">Profile Summary</div>
-			  <div class="panel-body"><h3><?php echo $profile_sum; ?></h3></div>
+			<div class="panel">
+			  <h3 class="panel-heading">Profile Summary</h3>
+			 	<h4 class="panel-body"><?php echo $profile_sum; ?></h4>
 			</div>
-			<div class="panel panel-primary">
-			  <div class="panel-heading">Skills</div>
-			  <div class="panel-body"><h3><?php echo $skills; ?></h3></div>
+			<div class="panel">
+			  <h3 class="panel-heading">Skills</h3>
+			  <h4 class="panel-body"><?php echo $skills; ?></h4>
 			</div>
-			<div class="panel panel-primary">
-			  <div class="panel-heading">Experience</div>
-			  <div class="panel-body"><h3><?php echo $experience; ?></h3></div>
+			<div class="panel">
+			  <h3 class="panel-heading">Experience</h3>
+			  <h4 class="panel-body"><?php echo $experience; ?></h4>
 			</div>
-			<div class="panel panel-primary">
-			  <div class="panel-heading">Education</div>
-			  <div class="panel-body"><h3><?php echo $education; ?></h3></div>
+			<div class="panel">
+			  <h3 class="panel-heading">Education</h3>
+			  <h4 class="panel-body"><?php echo $education; ?></h4>
 			</div>
 
 			<br> <hr> <br>
-			<div class="panel panel-primary">
-			  <div class="panel-heading"><h3 class="blue-text">Ongoing Pojects</h3></div>
-			  <div class="panel-body"><h3>
+			<div class="panel">
+			 	<h3 id='myProjects' class="panel-heading blue-text">Ongoing Pojects</h3>
+			  	<h4 class="panel-body">
                   <table style="width:100%">
                       <tr>
                           <td>Project ID</td>
@@ -152,11 +152,11 @@ if ($result->num_rows > 0) {
 
                        ?>
                   </table>
-              </h3></div>
+              </h4>
 			</div>
-			<div class="panel panel-primary">
-			  <div class="panel-heading"><h3 class="blue-text"><h3 class="blue-text">Completed Projects</h3></div>
-			  <div class="panel-body"><h3>
+			<div class="panel">
+			  	<h3 class="panel-heading blue-text">Completed Projects</h3>
+			  		<h4 class="panel-body">
                   <table style="width:100%">
                       <tr>
                           <td>Project ID</td>
@@ -196,7 +196,7 @@ if ($result->num_rows > 0) {
 
                        ?>
                   </table>
-              </h3></div>
+              </h4>
 			</div>
 		</div>
 <!--End Freelancer Profile Details-->

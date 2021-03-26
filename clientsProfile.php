@@ -50,7 +50,7 @@ $result = $conn->query($sql);
 			<h2>Hello! <?php echo "$fname $sname"; ?></h2>
 			<p class="panel-body"><?php echo "Username: $username"; ?></p>
 			<div class="card panel-body">
-				<a href="postJob.php" class="tomato-hover">Post a job offer</a>
+				<a href="postProject.php" class="tomato-hover">Post a job offer</a>
 	        <a href="editClientProfile.php" class="tomato-hover">Edit Profile</a>
 			  	<a href="message.php" class="tomato-hover">Messages</a>
 			  	<a href="logout.php" class="tomato-hover">Logout</a>
@@ -61,15 +61,15 @@ $result = $conn->query($sql);
 <!--Contact Information-->
 		<div class="card">
 			<div class="panel">
-			  <div class="panel-heading"><h4>Contact Information</h4></div>
+			 <h3 class="panel-heading blue-text">Contact Information</h3>
 			</div>
 			<div class="panel">
-			  <div class="panel-heading">Email</div>
-			  <div class="panel-body"><?php echo $email; ?></div>
+			  <h4 class="panel-heading">Email</h4>
+			  <p class="panel-body"><?php echo $email; ?></p>
 			</div>
 			<div class="panel">
-			  <div class="panel-heading">Address</div>
-			  <div class="panel-body"><?php echo $address; ?></div>
+			 	<h4 class="panel-heading">Address</h4>
+			  <p class="panel-body"><?php echo $address; ?></p>
 			</div>
 		</div>
 <!--End Contact Information-->
@@ -77,39 +77,39 @@ $result = $conn->query($sql);
 <!--Reputation-->
 		<div class="card">
 			<div class="panel">
-			  <div class="panel-heading"><h3 class="blue-text">Reputation</h3></div>
+				<h3 class="panel-heading blue-text">Reputation</h3>
 			</div>
 			<div class="panel">
-			  <div class="panel-heading"><h4>Reviews</h4></div>
-			  <div class="panel-body">No Information Available...</div>
+			  <h4 class="panel-heading">Reviews</h4>
+			  <p class="panel-body">No Information Available...</p>
 			</div>
 			<div class="panel">
-			  <div class="panel-heading"><h4>Ratings</h4></div>
-			  <div class="panel-body">No Information Available...</div>
+			 	<h4 class="panel-heading">Ratings</h4>
+			  <p class="panel-body">No Information Available...</p>
 			</div>
 		</div>
 <!--End Reputation-->
 
 <!--clients Profile Details-->
-		<div class="card" style="">
-			<div class="panel panel-primary">
-			  <div class="panel-heading"><h3 class="blue-text">Client Profile Details</h3></div>
+		<div class="card">
+			<div class="panel">
+			  <h3 class="panel-heading blue-text">Client Profile Details</h3>
 			</div>
-			<div class="panel panel-primary">
-			  <div class="panel-heading">Company Name</div>
-			  <div class="panel-body"><h4><?php echo $companyName; ?></h4></div>
+			<div class="panel">
+			  <h3 class="panel-heading">Company Name</h3>
+			  <h4 class="panel-body"><?php echo $companyName; ?></h4>
 			</div>
 
-			<div class="panel panel-primary">
-			  <div class="panel-heading">Profile Summary</div>
-			  <div class="panel-body"><h4><?php echo $profile_sum; ?></h4></div>
+			<div class="panel">
+			  <h3 class="panel-heading">Profile Summary</h3>
+				<h4 class="panel-body"><?php echo $profile_sum; ?></h4>
 			</div>
 
 <br> <hr>
 
-			<div class="panel panel-primary">
-			  <div class="panel-heading"><h3 class="blue-text">Project Adverts Posted</h3></div>
-			  <div class="panel-body"><h4>
+			<div class="panel">
+			  <h3 class="panel-heading blue-text">Project Adverts Posted</h3>
+				  <h4 accesskey=""class="panel-body">
                   <table style="width:100%">
                       <tr>
                           <td>Project ID</td>
@@ -142,11 +142,11 @@ $result = $conn->query($sql);
 
                        ?>
                   </table>
-              </h4></div>
+              </h4>
 			</div>
-			<div class="panel panel-primary">
-			  <div class="panel-heading"><h3 class="blue-text">Previous Projects</h3></div>
-			  <div class="panel-body"><h4>
+			<div class="panel">
+			  <h3 class="panel-heading blue-text">Previous Projects</h3>
+			  		<h4 class="panel-body">
                   <table style="width:100%">
                       <tr>
                           <td>Project ID</td>
@@ -181,11 +181,11 @@ $result = $conn->query($sql);
 
                        ?>
                   </table>
-              </h4></div>
+              </h4>
 			</div>
-			<div class="panel panel-primary">
-			  <div class="panel-heading"><h3 class="blue-text">Hired Freelancers</h3></div>
-			  <div class="panel-body"><h4>
+			<div class="panel">
+			  <h3 class="panel-heading blue-text">Hired Freelancers</h3>
+			  		<h4 class="panel-body">
                   <table style="width:100%">
                       <tr>
                           <td>Project ID</td>
@@ -225,11 +225,11 @@ $result = $conn->query($sql);
 
                        ?>
                   </table>
-              </h4></div>
+              </h4>
 			</div>
-			<div class="panel panel-primary">
-			  <div class="panel-heading"><h3 class="blue-text">Previously Hired Freelancers</h3></div>
-			  <div class="panel-body"><h4>
+			<div class="panel">
+			 	<h3 class="panel-heading blue-text">Previously Hired Freelancers</h3>
+			   		<h4 class="panel-body">
                   <table style="width:100%">
                       <tr>
                           <td>Project ID</td>
@@ -269,7 +269,7 @@ $result = $conn->query($sql);
 
                        ?>
                   </table>
-              </h4></div>
+              </h4>
 			</div>
 		</div>
 <!--End Clients Profile Details-->
