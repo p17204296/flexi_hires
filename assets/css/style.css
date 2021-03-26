@@ -49,10 +49,11 @@ nav a:hover{
 
 .container{
   border: 1px solid red;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   padding: 1%;
 }
+
 
 .float-container{
   position: relative;
