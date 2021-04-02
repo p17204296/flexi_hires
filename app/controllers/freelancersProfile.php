@@ -14,6 +14,11 @@ Class freelancersProfile extends Controller
         }
 
 		$data['page_title'] = "Freelancers Profile";
+        $freelancerProfileModel = $this->loadModel("freelancerProfileModel");
+        $result=$freelancerProfileModel->viewProfile ();
+
+        $data['content'] = $result;
+
 		$this->view("freelancersProfileView",$data);
 
 	}
