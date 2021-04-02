@@ -1,0 +1,348 @@
+/*
+  Author: P17204296
+  Version: 1.0
+
+  ----- Note to Self -----
+  Font Colours: https://flatuicolors.com/palette/us
+  Potential Use of W3CSS: https://www.w3schools.com/w3css/default.asp
+*/
+
+
+/* MOBILE AND GLOBAL STYLES */
+
+/* applies to screens smaller than 500px (first breakpoint) */
+/* and above unless overwritten below */
+*{
+    margin: 0 0;
+    padding: 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box; /* allows padding and border to be included in an element's total width and height. */
+}
+
+h2{
+  margin: 2%;
+  font-size: 2rem;
+  color: #2d3436; /* Blackish */
+}
+
+a{
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a{
+  color: white;
+  line-height: 70px;
+  padding: 1%;
+}
+nav a:hover{
+  color: skyblue;
+}
+
+/* CSS Text Alignment  */
+.text-align-center{
+  text-align: center;
+}
+.right-align-text{
+  text-align: right;
+}
+
+.container{
+  border: 1px solid red;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1%;
+}
+
+
+.float-container{
+  position: relative;
+}
+.float-text{
+  position: absolute;
+  left: 24%;
+  bottom: 50px;
+}
+
+.purple-text{
+  color: #6c5ce7;
+}
+
+.blue-text{
+  color: blue;
+}
+
+.green-text{
+  color: #00b894;
+}
+
+.red-text{
+  color: #d63031;
+}
+
+.clearfix{ /* Prevents Overflow */
+  clear: both;
+  float: none;
+}
+
+/* Navbar CSS */
+.logo{
+  margin-left: 3%;
+  width: 26%;
+  float: none;
+}
+
+.navbar{ /* Needed only for movile View */
+  background-color: black;
+}
+
+.responsive-img{ /* Enambles responsive movement for images */
+  width: 100%;
+}
+
+.curve-img{
+  border-radius: 12px;
+}
+
+
+.tomato-hover:hover{
+  color: tomato;
+}
+
+.btn{
+  cursor: pointer;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  padding: 1%;
+}
+
+.index-search-btn{
+  width: 65%;
+  cursor: pointer;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  padding: 1%;
+}
+
+.btn-primary-col{
+  background-color: skyblue;
+}
+
+.btn-primary-col:hover{
+  background-color: tomato;
+  color: white;
+}
+
+/* Category Seach Section */
+
+.bg-wrapper{
+  color: white;
+  border: 1px solid red;
+  width: 100%;
+  /* margin: 0 auto; */
+  padding-bottom: 70%;
+  background-image: url(../images/bg-2.png);
+  background-size: cover;
+  background-position: right;
+  max-height: 450px;
+  background-repeat: no-repeat;
+}
+
+.main-content-index{
+  font-family: Arial;
+  border: 2px solid skyblue;
+  margin-top: 12%;
+  margin-right: 20%;
+  width: 65%;
+  /* padding: 10px 40px 10px 40px; */
+}
+
+.cat-search input[type="search"]{
+  width: 90%;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  padding: 2%;
+  margin-bottom:2%;
+}
+
+/* Categories Section */
+
+.categories{
+  padding: 4% 0;
+}
+
+.cat-boxes{
+  margin: 4%;
+  border: 2px solid black;
+  float: left;
+  width: 40%;
+}
+
+.cat-deco{
+  padding: 1%;
+  font-size: 0.8rem;
+  border: 1px solid red;
+  border-radius: 6px;
+  background-color: white;
+}
+
+/* Explore Category Section */
+.explore-section{
+  background-color: #E0E0E0;
+  padding: 3% 0;
+}
+
+.explore-boxes{
+  background-color: white;
+  padding: 6%;
+  margin: 2% auto;
+  border: 1px solid black;
+  width: 95%;
+  float:left;
+  border-radius: 12px;
+}
+
+.explore-img{
+  width: 30%;
+  float: left;
+}
+
+.explore-info{
+  margin-left: 5%;
+  width: 60%;
+  float: left;
+}
+
+.cat-details{
+  margin: 4% 0;
+  font-size: 1rem;
+}
+
+/* SOCIAL MEDIA STYLES */
+
+.social ul{
+    padding: 5% 0;
+    list-style-type: none;
+}
+.social ul li{
+    padding: 1%;
+    display: inline;
+}
+
+
+/* Client and Freelancer Pofile Styles */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: #fff;
+  padding:20px 20px 5px 20px;
+  margin-top:20px;
+}
+
+.panel {
+
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid lightblue;
+  border-radius: 4px;
+}
+
+.panel-heading {
+  background-color: lightblue;
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-bottom-color: transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.panel-body {
+  padding: 15px;
+}
+
+.welcome-panel {
+  padding: 30px;
+}
+
+.panel-primary {
+  border-color: #337ab7;
+}
+
+
+/* TABLET STYLES */
+
+@media screen and (min-width: 500px) {
+
+  /* applies to screens wider than 499px */
+  body {
+    background: #cfc;
+  }
+
+  /* Navbar CSS */
+  .logo{
+    float: left;
+  }
+
+  /* Index Main Section i.e. background image section */
+
+  .cat-search input[type="search"]{
+    width: 70%;
+    padding: 1%;
+    margin-bottom:3%;
+  }
+
+  .cat-boxes{
+    margin: 1.6%;
+    width: 29%;
+  }
+
+
+  .float-cat-text{
+    position: absolute;
+    left: 15%;
+    bottom: 30px;
+  }
+
+  /* Explore Category Section */
+  .explore-boxes{
+    padding: 2%;
+    margin: 1%;
+    width: 45%;
+  }
+
+}
+
+
+
+/* DESKTOP STYLES */
+
+@media screen and (min-width: 1000px) {
+
+  /* applies to screens wider than 999px */
+
+  body {
+    background: #ccf;
+  }
+
+  /* Navbar CSS */
+  .logo{
+    width: 20%;
+  }
+
+  .cat-search input[type="search"]{
+    width: 80%;
+  }
+
+  .index-search-btn{
+    width: 45%;
+  }
+
+  .cat-deco{
+    font-size: 1.5rem;
+  }
+
+
+}
