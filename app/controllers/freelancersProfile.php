@@ -15,9 +15,15 @@ Class freelancersProfile extends Controller
 
 		$data['page_title'] = "Freelancers Profile";
         $freelancerProfileModel = $this->loadModel("freelancerProfileModel");
-        $result=$freelancerProfileModel->viewProfile ();
 
-        $data['content'] = $result;
+        $freelancerTable=$freelancerProfileModel->viewProfile();
+        $data['freelancerTable'] = $freelancerTable;
+
+        $ongoingProjectsTable=$freelancerProfileModel->viewOngoingProjects();
+        $data['ongoingProjectsTable'] = $ongoingProjectsTable;
+
+        $completedProjectsTable=$freelancerProfileModel->viewCompletedProjects();
+        $data['completedProjectsTable'] = $completedProjectsTable;
 
 		$this->view("freelancersProfileView",$data);
 
