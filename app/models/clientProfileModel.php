@@ -3,19 +3,20 @@
 Class clientProfileModel
 {
 
+
     function viewProjects($projectsValid)
     {
         if(isset($_SESSION["Username"]) && $_SESSION["Usertype"]==2){
 
-            $query = "select * from projects where clientID=:clientID and $projectsValid order by timestamp desc";
-            $arr['clientID']=$_SESSION["clientID"];
+            $clientID=$_SESSION["clientID"];
+            $query = "select * from projects where clientID=$clientID and $projectsValid order by timestamp desc";
 
             $DB = new Database();
-            $data = $DB->read($query,$arr);
+            $data = $DB->read($query);
             if(is_array($data))
             {
 
-                return $data[0];
+                    return $data;
             }
 
         }

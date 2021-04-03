@@ -7,16 +7,15 @@ Class globalProfileModel
     {
         if(isset($_SESSION["Username"]) && $userTypeCondition){
 
-            $query = "SELECT * FROM projects,booked WHERE projects.projectID=booked.projectID AND booked.$usernameType=:user_name AND $bookedValid ORDER BY projects.timestamp DESC";
-            $arr['user_name']=$_SESSION["Username"];
+            $user_name=$_SESSION["Username"];
+            $query = "SELECT * FROM projects,booked WHERE projects.projectID=booked.projectID AND booked.$usernameType = '$user_name' AND $bookedValid ORDER BY projects.timestamp DESC";
 
             $DB = new Database();
-            $data = $DB->read($query,$arr);
-            if(is_array($data))
-            {
+            $data = $DB->read($query);
+            if(is_array($data)):
 
-                return $data[0];
-            }
+                return $data;
+            endif;
 
         }
         else{

@@ -230,7 +230,6 @@ Class User
     function viewProfile($userTypeCondition, $userTable)
     {
 
-//        if (isset($_SESSION["Username"]) && $_SESSION["Usertype"] == 2) {
         if (isset($_SESSION["Username"]) && $userTypeCondition) {
 
             $query = "select * from $userTable where username = :user_name limit 1";
