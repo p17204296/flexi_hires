@@ -14,6 +14,32 @@ Class clientsProfile extends Controller
         }
 
         $data['page_title'] = "Clients Profile";
+
+        //Contact Information
+        $clientTable=$user->viewProfile($_SESSION["Usertype"] == 2, 'clients');
+        $data['clientTable'] = $clientTable;
+
+        //Load freelancerProfileModel
+        $clientProfileModel = $this->loadModel("clientProfileModel");
+
+        //Posted Adverts
+        $postedAdvertsTable=$clientProfileModel->viewProjects('valid=1');
+        $data['postedAdvertsTable'] = $postedAdvertsTable;
+
+        //Previous Projects
+        $prevProjectsTable=$clientProfileModel->viewProjects('valid=0');
+        $data['prevProjectsTable'] =  $prevProjectsTable;
+
+        //Load freelancerProfileModel
+        $globalProfileModel = $this->loadModel("globalProfileModel");
+
+        //Hired Freelancers
+        $hiredTable=$globalProfileModel->viewProjects($_SESSION["Usertype"] == 2, 'c_username', 'booked.valid=1');
+        $data['hiredTable'] = $hiredTable;
+        //Previously Hired
+        $prevHiredTable=$globalProfileModel->viewProjects($_SESSION["Usertype"] == 2, 'c_username', 'booked.valid=1');
+        $data['prevHiredTable'] = $prevHiredTable;
+
         $this->view("clientsProfileView",$data);
 
 

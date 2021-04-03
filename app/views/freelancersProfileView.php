@@ -124,18 +124,18 @@ $row3=$data['completedProjectsTable']; //Completed Project details from table
                         <td>Client Details</td>
                     </tr>
                     <?php
-                    if($row2):
+                    if($row3):
                         echo '
                             <form action="freelancerProfile.php" method="post">
-                            <input type="hidden" name="pid" value="'.$row2->projectID.'">
+                            <input type="hidden" name="pid" value="'.$row3->projectID.'">
                                 <tr>
-                                <td>'.$row2->projectID.'</td>
-                                <td><input type="submit" class="btn" value="'.$row2->projectTitle.'"></td>
+                                <td>'.$row3->projectID.'</td>
+                                <td><input type="submit" class="btn" value="'.$row3->projectTitle.'"></td>
                                 </form>
                                 <form action="freelancerProfile.php" method="post">
-                                <input type="hidden" name="viewClient" value="'.$row2->c_username.'">
-                                <td><input type="submit" class="btn" value="'.$row2->c_username.'"></td>
-                                <td>'.$row2->timestamp.'</td>
+                                <input type="hidden" name="viewClient" value="'.$row3->c_username.'">
+                                <td><input type="submit" class="btn" value="'.$row3->c_username.'"></td>
+                                <td>'.$row3->timestamp.'</td>
                                 </tr>
                             </form>
                             ';

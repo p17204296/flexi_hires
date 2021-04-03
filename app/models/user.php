@@ -227,4 +227,31 @@ Class User
     }
 
 
+    function viewProfile($userTypeCondition, $userTable)
+    {
+
+//        if (isset($_SESSION["Username"]) && $_SESSION["Usertype"] == 2) {
+        if (isset($_SESSION["Username"]) && $userTypeCondition) {
+
+            $query = "select * from $userTable where username = :user_name limit 1";
+            $arr['user_name'] = $_SESSION["Username"];
+
+            $DB = new Database();
+            $data = $DB->read($query, $arr);
+            if (is_array($data)) {
+
+                return $data[0];
+            }
+
+
+        } else {
+
+            $arr['user_name'] = "";
+            header("location:". ROOT . "home");
+        }
+
+        return false;
+
+    }
+
 }
