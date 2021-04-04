@@ -3,35 +3,6 @@
 $this->view("partialsHeader",$data);
 
 
-if(isset($_SESSION["Username"])){
-	$username=$_SESSION["Username"];
-}
-else{
-    $username="";
-	//header("location: index.php");
-}
-
-
-if(isset($_POST["postProject"])){
-		$clientID=row($_POST["clientID"]);
-    $projectTitle=row($_POST["projectTitle"]);
-    $category=row($_POST["category"]);
-    $description=row($_POST["description"]);
-    $budget=row($_POST["budget"]);
-    // $skills=row($_POST["skills"]);
-    // $special_skill=row($_POST["special_skill"]);
-    $dueDate=row($_POST["dueDate"]);
-
-    // $sql = "INSERT INTO projects (projectTitle, category, description, budget, skills, special_skill, c_username, valid, dueDate) VALUES ('$projectTitle', '$category', '$description','$budget','$skills','$special_skill','$username',1, '$dueDate')";
-		$sql = "INSERT INTO projects (clientID, projectTitle, category, description, budget, valid, dueDate) VALUES ('$clientID', '$projectTitle', '$category', '$description','$budget', 1, '$dueDate')";
-    $result = $conn->query($sql);
-    if($result==true){
-        $_SESSION["projectID"] = $conn->insert_id;
-        header("location: projectDetails.php");
-    }
-}
-
-
  ?>
 
 <div class="container">
@@ -75,14 +46,7 @@ if(isset($_POST["postProject"])){
                     <div class="col-sm-5">
                         <input type="text" class="form-control" name="skills" value="" />
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Special Requirement</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" name="special_skill" value="" />
-                    </div>
-                </div> -->
+                    </div> -->
 
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Deadline</label>
@@ -105,4 +69,4 @@ if(isset($_POST["postProject"])){
 		<!--End main body-->
 
 
-<?php$this->view("partialsFooter",$data); ?>
+<?php $this->view("partialsFooter",$data); ?>

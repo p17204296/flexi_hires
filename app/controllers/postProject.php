@@ -14,7 +14,16 @@ Class postProject extends Controller
         }
 
         $data['page_title'] = "Post Projects";
-		$this->view("postProject",$data);
+
+        //Load postProjectModel
+        if (isset($_POST['postProject'])) {
+            $advertiseProject = $this->loadModel("projectModel");
+
+            //Post Project Function
+            $advertiseProject->postProjectSQL($_POST);
+        }
+
+		$this->view("postProjectView",$data);
 
 	}
 

@@ -51,7 +51,7 @@ Class clientProfileModel
 
             $query = "UPDATE clients SET fname=:fname, sname=:sname, email=:email, address=:address,  city=:city,  postcode=:postcode, dob=:dob, profileSummary=:profileSummary, companyName=:companyName WHERE username='$user_name'";
             $DB = new Database();
-            $data = $DB->read($query,$arr);
+            $data = $DB->write($query,$arr);
             if(is_array($data))
             {
 
