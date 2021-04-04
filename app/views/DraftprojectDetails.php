@@ -1,4 +1,5 @@
-<?php include('partials/header.php');
+<?php
+$this->view("partialsHeader",$data);
 
 if(isset($_SESSION["Username"])){
 	$username=$_SESSION["Username"];
@@ -330,7 +331,10 @@ if ($result->num_rows > 0) {
 <!--End main body-->
 
 
-<?php include('partials/footer.php');
+<?php
+
+$this->view("partialsFooter",$data);
+
 
 if($e_username!=$username && $_SESSION["Usertype"]!=1){
 	echo "<script>
@@ -352,7 +356,3 @@ if($e_username!=$username){
 
 
 ?>
-
-
-</body>
-</html>

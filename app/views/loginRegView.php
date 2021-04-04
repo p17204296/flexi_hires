@@ -61,7 +61,7 @@ $this->view("partialsHeader",$data);
 
 <section class="container">
     <div class="login-page">
- <p><?=$_SESSION['Username'] . " | " . $_SESSION['Usertype'] ?></p>
+ <p><?=$_SESSION['Username'] . " | Usertype: " . $_SESSION['Usertype'] ?></p>
         <div class="form">
             <h2>Login</h2>
             <?php if (isset($_POST['login'])): ?>

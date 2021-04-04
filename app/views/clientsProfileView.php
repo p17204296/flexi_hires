@@ -16,7 +16,7 @@ $row=$data['clientTable'];//Client details from table
     <p class="panel-body"> <?php echo "Username: $row->username"; ?></p>
     <div class="card panel-body">
       <a href="<?=ROOT?>postProject" class="tomato-hover">Post a Project Advert</a>
-      <a href="<?=ROOT?>editFreelancerProfile" class="tomato-hover">Edit Profile</a>
+      <a href="<?=ROOT?>editClientProfile" class="tomato-hover">Edit Profile</a>
       <a href="<?=ROOT?>message" class="tomato-hover">Messages</a>
       <a href="<?=ROOT?>logout" class="tomato-hover">Logout</a>
     </div>

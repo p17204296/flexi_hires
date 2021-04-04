@@ -14,6 +14,19 @@ Class editClientProfile extends Controller
         }
 
         $data['page_title'] = "Edit Client Profile";
+
+        //Load clientProfileModel
+        if(isset($_POST['editClient'])) {
+            $editClientProfile = $this->loadModel("clientProfileModel");
+
+            //Edit Client Function
+            $editClientProfile->editClientDetails($_POST);
+        }
+
+        //Contact Information
+        $clientTable=$user->viewProfile($_SESSION["Usertype"] == 2, 'clients');
+        $data['clientTable'] = $clientTable;
+
         $this->view("editClientProfileView",$data);
 
     }

@@ -81,5 +81,33 @@ Class Database
 		}
 	}
 
+    public function update($query,$data = [])
+    {
+
+        $DB = $this->db_connect();
+        $stm = $DB->prepare($query); #prepared statement for security
+
+        if(count($data) == 0)
+        {
+            $stm = $DB->query($query);
+            $check = 0;
+            if($stm){
+                $check = 1;
+            }
+        }else{
+
+            $check = $stm->execute($data);
+        }
+
+        if($check)
+        {
+            return true;
+        }else
+        {
+            return false;
+        }
+    }
+
+
 
 }

@@ -1,4 +1,7 @@
-<?php include('partials/header.php');
+<?php
+
+$this->view("partialsHeader",$data);
+
 
 if(isset($_SESSION["Username"])){
 	$username=$_SESSION["Username"];
@@ -102,4 +105,4 @@ if(isset($_POST["postProject"])){
 		<!--End main body-->
 
 
-		<?php include('partials/footer.php');
+<?php$this->view("partialsFooter",$data); ?>

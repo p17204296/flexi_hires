@@ -69,9 +69,6 @@ Class User
 
     function register($POST)
     {
-//        $user_name = $POST['username'];
-//        $password = $POST['password'];
-//        $repassword = $POST['repassword'];
 
         $DB = new Database();
 
@@ -116,9 +113,9 @@ Class User
                 if($data)
                 {
                     //logged in
-    //                    $_SESSION['freelancerID'] = $data[0]->freelancerID;
-    //                    $_SESSION['Username'] = $data[0]->username;
-    //                    $_SESSION['Usertype'] = 1;
+//                    $_SESSION['freelancerID'] = $data[0]->freelancerID;
+//                    $_SESSION['Username'] = $data[0]->username;
+//                    $_SESSION['Usertype'] = 1;
 
                     header("Location:". ROOT . "editFreelancersProfile");
                     die;

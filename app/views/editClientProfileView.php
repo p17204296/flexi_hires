@@ -1,52 +1,9 @@
-<?php include('partials/header.php'); ?>
-
-
 <?php
 
-if(isset($_SESSION["Username"])){
-	$username=$_SESSION["Username"];
-}
-else{
-	$username="";
-	//header("location: index.php");
-}
+$this->view("partialsHeader",$data);
 
-$sql = "SELECT * FROM clients WHERE username='$username'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-	// output data of each row
-	while($row = $result->fetch_assoc()) {
-		$fname=$row["fname"];
-		$sname=$row["sname"];
-		$email=$row["email"];
-		$address=$row["address"];
-		$dob=$row["dob"];
-		$profile_sum=$row["profileSummary"];
-		$companyName=$row["companyName"];
-	}
-} else {
-	echo "0 results";
-}
+$row=$data['clientTable'];//Client details from table
 
-
-if(isset($_POST["editClient"])){
-	$fname=row($_POST["fname"]);
-	$sname=row($_POST["sname"]);
-	$email=row($_POST["email"]);
-	$address=row($_POST["address"]);
-	$dob=row($_POST["dob"]);
-	$profile_sum=row($_POST["profileSummary"]);
-	$companyName=row($_POST["companyName"]);
-
-
-	$sql = "UPDATE clients SET  fname='$fname',sname='$sname',email='$email', address='$address',dob='$dob',profileSummary='$profile_sum', companyName='$companyName' WHERE username='$username'";
-
-
-	$result = $conn->query($sql);
-	if($result==true){
-		header("location: clientsProfile.php");
-	}
-}
 
 
 ?>
@@ -59,49 +16,63 @@ if(isset($_POST["editClient"])){
 			<div class="">
 				<label class="">First Name</label>
 				<div class="">
-					<input type="text" class="" name="fname" value="<?php echo $fname; ?>" />
+					<input type="text" class="" name="fname" value="<?php echo $row->fname; ?>" />
 				</div>
 			</div>
 
 			<div class="">
 				<label class="">Surname</label>
 				<div class="">
-					<input type="text" class="" name="sname" value="<?php echo $sname; ?>" />
+					<input type="text" class="" name="sname" value="<?php echo $row->sname; ?>" />
 				</div>
 			</div>
 
 			<div class="">
 				<label class="">Email address</label>
 				<div class="">
-					<input type="text" class="" name="email" value="<?php echo $email; ?>" />
+					<input type="text" class="" name="email" value="<?php echo $row->email; ?>" />
 				</div>
 			</div>
 
 			<div class="">
 				<label class="">Address</label>
 				<div class="">
-					<input type="text" class="" name="address" value="<?php echo $address; ?>" />
+					<input type="text" class="" name="address" value="<?php echo $row->address; ?>" />
 				</div>
 			</div>
+
+            <div class="">
+                <label class="">City</label>
+                <div class="">
+                    <input type="text" class="" name="city" value="<?php echo $row->city; ?>" />
+                </div>
+            </div>
+
+            <div class="">
+                <label class="">Postcode</label>
+                <div class="">
+                    <input type="text" class="" name="postcode" value="<?php echo $row->postcode; ?>" />
+                </div>
+            </div>
 
 			<div class="">
 				<label class="">Date of birth</label>
 				<div class="">
-					<input type="date" class="" name="dob" value="<?php echo $dob; ?>" />
+					<input type="date" class="" name="dob" value="<?php echo $row->dob; ?>" />
 				</div>
 			</div>
 
 			<div class="">
 				<label class="">Profile Summary</label>
 				<div class="">
-					<textarea class="" rows="12" name="profileSummary"> <?php echo $profile_sum; ?></textarea>
+					<textarea class="" rows="12" name="profileSummary"> <?php echo $row->profileSummary; ?></textarea>
 				</div>
 			</div>
 
 			<div class="">
 				<label class="">Company Name</label>
 				<div class="">
-					<input type="text" class="" name="companyName" value="<?php echo $companyName; ?>" />
+					<input type="text" class="" name="companyName" value="<?php echo $row->companyName; ?>" />
 				</div>
 			</div>
 
@@ -114,4 +85,4 @@ if(isset($_POST["editClient"])){
 		</form>
 </section>
 
-<?php include('partials/footer.php'); ?>
+<?php $this->view("partialsFooter",$data); ?>
