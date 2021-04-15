@@ -31,6 +31,7 @@
           <nav class="right-align-text">
             <a href='<?=ROOT?>home'>Home</a>
             <a href='#'>Explore Freelancers</a>
+            <a href='<?=ROOT?>browseProjects'>Browse Projects</a>
             <a href='<?=ROOT?>postProject'>Post a Project</a>
             <a href='#'>Messages</a>
             <a href='<?=ROOT?>clientsProfile'>My Profile</a>
