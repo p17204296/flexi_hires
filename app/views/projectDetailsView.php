@@ -2,8 +2,6 @@
 $this->view("partialsHeader",$data);
 
 $row=$data['projectDetailsTable'];//Projects details from table
-//$row2=$data['liveApplicants']; //Freelancer Details
-//$row3=$data['closedApplicants']; //Freelancer Details
 $row4=$data['viewRecruiter'];//Client details from table
 
 
@@ -18,7 +16,6 @@ if ($_SESSION["Usertype"]==1){
     $linkBtn="";
     $textBtn="";
 }
-
 
  ?>
 
@@ -70,55 +67,55 @@ if ($_SESSION["Usertype"]==1){
                     <?php
 
                     //If Job Posting Still Open
-                    if(is_array($data['liveApplicants'])){
-//                    if ($data['liveApplicants']){
-                     foreach ($data['liveApplicants'] as $row2):
-                        echo '
-                        <form action="'. ROOT . 'projectDetails" method="post">
-                        <input type="hidden" name="f_username" value="' .$row2->f_username.'">
-                            <tr>
-                            <td><input type="submit" class="btn" value="'.$row2->f_username.'"></td>
-                            <td>'.$row2->bidPrice. '</td>
-                            </form>
+                    if(is_array($data['liveApplicants']) OR is_array($data['closedApplicants'])){
+                       if($data['liveApplicants']):
+                         foreach ($data['liveApplicants'] as $row2):
+                            echo '
                             <form action="'. ROOT . 'projectDetails" method="post">
-                            <input type="hidden" name="coverLetter" value="' .$row2->coverLetter. '">
-                            <td><input type="submit" class="btn btn-link btn-lg" value="cover letter"></td>
-                            </form>
-                            <form action="'. ROOT . 'projectDetails" method="post">
-                            <input type="hidden" name="f_user_hire" value="' .$row2->f_username.'">
-                            <input type="hidden" name="bidPrice" value="'.$row2->bidPrice.'">
-                            <td><input type="submit" class="btn btn-link btn-lg" value="Hire"></td>
-                            </tr>
-                        </form>';
-                     endforeach;
-
-                    //If Job Posting Closed See Previous Freelancers
-                    }elseif(is_array($data['closedApplicants'])){
-//                    }elseif($data['closedApplicants']){
+                            <input type="hidden" name="f_username" value="' .$row2->f_username.'">
+                                <tr>
+                                <td><input type="submit" class="btn" value="'.$row2->f_username.'"></td>
+                                <td>'.$row2->bidPrice. '</td>
+                                </form>
+                                <form action="'. ROOT . 'projectDetails" method="post">
+                                <input type="hidden" name="coverLetter" value="' .$row2->coverLetter. '">
+                                <td><input type="submit" class="btn btn-link btn-lg" value="cover letter"></td>
+                                </form>
+                                <form action="'. ROOT . 'projectDetails" method="post">
+                                <input type="hidden" name="freelancerID" value="' .$row2->freelancerID.'">
+                                <input type="hidden" name="f_user_hire" value="' .$row2->f_username.'">
+                                <input type="hidden" name="bidPrice" value="'.$row2->bidPrice.'">
+                                <td><input type="submit" class="btn btn-link btn-lg" value="Hire"></td>
+                                </tr>
+                            </form>';
+                        endforeach;
+                       endif;
+                       if($data['closedApplicants']):
                         foreach ($data['closedApplicants'] as $row3):
                             $valid=$row3->valid;
                             if ($valid==0) {
-                                $tc="Job ended";
+                                $tc="Project Complete";
                                 $tv="";
                             }else{
-                                $tc="End Job";
+                                $tc="Close Project";
                                 $tv="f_done";
                             }
                         echo '
                             <form action="'. ROOT .'projectDetails" method="post">
-                            <input type="hidden" name="f_user" value="' .$row3->f_username.'">
+                            <input type="hidden" name="f_username" value="' .$row3->f_username.'">
                                 <tr>
                                 <td><input type="submit" class="btn btn-link btn-lg" value="'.$row3->f_username.'"></td>
                                 <td>'.$row3->price. '</td>
                                 </form>
-                              <form action="projectDetailsView.php" method="post">
-                                <input type="hidden" name="' .$tv.'" value="'.$row3->f_username.'">
+                              <form action="'. ROOT .'projectDetails" method="post">
+                                <input type="hidden" name="freelancerID" value="' .$row3->freelancerID.'">
+                                <input type="hidden" name="'.$tv.'" value="'.$row3->f_username.'">
                                 <td><input type="submit" class="btn btn-link btn-lg" value="'.$tc.'"></td>
                                 </tr>
                              </form>
                             ';
-
-                    endforeach;
+                        endforeach;
+                       endif;
                     }
                     else{
                         echo "<tr><td>No Information Available...</td></tr>";

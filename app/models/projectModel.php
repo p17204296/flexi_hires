@@ -138,19 +138,18 @@ Class projectModel
 
         } else {
 
-            $arr['user_name'] = "";
             header("location:". ROOT . "home");
         }
 
-        if(isset($_POST["f_user"])){
-            $_SESSION["f_user"]=$_POST["f_user"];
-            header("location:". ROOT . "viewFreelancer");
-        }
-
-        if(isset($_POST["c_letter"])){
-            $_SESSION["c_letter"]=$_POST["c_letter"];
-            header("location:". ROOT . "coverLetter");
-        }
+//        if(isset($_POST["f_user"])){
+//            $_SESSION["f_user"]=$_POST["f_user"];
+//            header("location:". ROOT . "viewFreelancer");
+//        }
+//
+//        if(isset($_POST["c_letter"])){
+//            $_SESSION["c_letter"]=$_POST["c_letter"];
+//            header("location:". ROOT . "coverLetter");
+//        }
 
         return false;
 
@@ -171,47 +170,20 @@ Class projectModel
                 return $data;
             }
 
-        } else {
+            if(isset($_POST["f_username"])){
 
-            header("location:". ROOT . "home");
-        }
+                $_SESSION["f_user"]=$_POST["f_username"];
+                header("location:" . ROOT . "viewFreelancerProfile");
 
-        return false;
+            }elseif (isset($_POST["coverLetter"])) {
 
-
-    }
-
-
-    function applicantActions($table, $projectID)
-    {
-        if (isset($_SESSION["Username"]) && isset($_SESSION["projectID"])) {
-
-            if (isset($_POST["f_hire"])) {
-
-                $query = "INSERT INTO $table (f_username, projectID, clientID, price, valid) VALUES (:f_user_hire, :projectID, :username,:f_price,1)";
+                $_SESSION["coverLetter"] = $_POST["coverLetter"];
+                header("location:" . ROOT . "coverLetter");
 
             } elseif (isset($_POST["f_done"])){
 
-                $sql = "UPDATE booked SET valid=0 WHERE projectID='$projectID'";
-
-            } else {
-
-                $query = "select * from $table where projectID='$projectID'";
-
-
-            }
-            if (isset($_POST["c_letter"])) {
-                $_SESSION["c_letter"] = $_POST["c_letter"];
-                header("location:" . ROOT . "coverLetter");
-            }
-
-
-            $DB = new Database();
-            $data = $DB->read($query);
-
-            if (is_array($data)) {
-
-                return $data;
+                $_SESSION["f_done"] = $_POST["f_done"];
+                header("location:" . ROOT . "projectDetails");
             }
 
         } else {
@@ -225,39 +197,80 @@ Class projectModel
     }
 
 
-    function hireFreelancer()
+    function applicantActions($projectID)
     {
+        if (isset($_SESSION["Username"]) && isset($_SESSION["projectID"])) {
 
-        if (isset($_SESSION["Username"]) && isset($_POST["f_hire"]) ) {
+            if (isset($_POST["f_user_hire"])) {
 
-            $arr['f_hire']=$_POST["f_hire"];
-            $arr['f_price']=$_POST["f_price"];
+                $arr['freelancerID'] = $_POST['freelancerID'];
+                $arr['f_user_hire'] = $_POST['f_user_hire'];
+                $arr['clientID'] = $_SESSION["clientID"];
+                $arr['c_username'] = $_SESSION["Username"];
+                $arr['bidPrice'] = $_POST["bidPrice"];
 
-//            $sql = "INSERT INTO booked (f_username, projectID, e_username, price, valid) VALUES ('$f_hire', '$projectID', '$username','$f_price',1)";
-            $query = "select * from projects where projectID=:projectID limit 1";
-            $arr['projectID'] = $_SESSION["projectID"];
+                //Insert into Booked table
+                $query = "INSERT INTO booked (freelancerID, f_username, projectID, clientID, c_username, price, valid) VALUES (:freelancerID, :f_user_hire, '$projectID', :clientID, :c_username, :bidPrice, 1)";
+
+                //Delete from Applied table
+                $query2 = "DELETE FROM applied WHERE projectID='$projectID'";
+
+                $DB = new Database();
+                $data = $DB->write($query2);
+
+                if (is_array($data)) {
+
+                    return $data;
+                }
+
+                //Update Projects table
+                $query3 = "UPDATE projects SET projectStatus='Ongoing', valid=2 WHERE projectID='$projectID'";
+
+                $DB = new Database();
+                $data = $DB->write($query3);
+
+                if (is_array($data)) {
+
+                    return $data;
+                }
+
+
+            } elseif (isset($_POST["f_done"])){
+
+                $arr['freelancerID'] = $_POST['freelancerID'];
+                //Update Booked table
+                $query = "UPDATE booked SET valid=0 WHERE projectID='$projectID' AND freelancerID=:freelancerID";
+
+                //Update Projects table
+                $query2 = "UPDATE projects SET projectStatus='Completed', valid=3 WHERE projectID= '$projectID'";
+
+                $DB = new Database();
+                $data = $DB->read($query2);
+
+                if (is_array($data)) {
+
+                    return $data;
+                }
+
+
+            }
 
             $DB = new Database();
-            $data = $DB->write($query, $arr);
+            $data = $DB->read($query,$arr);
+
             if (is_array($data)) {
 
                 return $data[0];
             }
 
+//                header("location:" . ROOT . "projectDetails");
+
         } else {
 
-            $arr['user_name'] = "";
-            header("location:". ROOT . "404");
+            header("location:". ROOT . "home");
         }
 
         return false;
-
-
-    }
-
-    function projectCompleted()
-    {
-
 
     }
 
@@ -279,7 +292,6 @@ Class projectModel
 
         } else {
 
-            $arr['user_name'] = "";
             header("location:". ROOT . "home");
         }
 

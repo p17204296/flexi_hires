@@ -22,24 +22,28 @@ Class projectDetails extends Controller
         $projectDetailsTable=$projectDetails->projectDetailsSQL();
         $data['projectDetailsTable'] = $projectDetailsTable;
 
-//        if (isset($_SESSION["Username"]) &&  isset($_SESSION["projectID"])) {
+        //Applicant Info - for Open Projects
+        $projectID = $_SESSION["projectID"];
 
-            //Applicant Info - for Open Projects
+        $viewApplicantTable = $projectDetails->viewApplicants('applied', $projectID );
+        $data['liveApplicants'] = $viewApplicantTable;
 
-            $projectID = $_SESSION["projectID"];
+        //Applicant Info - for Closed Projects
+        $viewApplicantTable = $projectDetails->viewApplicants('booked', $projectID );
+        $data['closedApplicants'] = $viewApplicantTable;
 
-            $viewApplicantTable = $projectDetails->viewApplicants('applied', $projectID );
-            $data['liveApplicants'] = $viewApplicantTable;
-
-            //Applicant Info - for Closed Projects
-            $viewApplicantTable = $projectDetails->viewApplicants('booked', $projectID );
-            $data['closedApplicants'] = $viewApplicantTable;
-
-//        }
-
-//        //Recruiter Info
+        //Recruiter Info
         $viewRecruiterTable=$projectDetails->viewRecruiter();
         $data['viewRecruiter'] = $viewRecruiterTable;
+
+        //Hire Freelancer
+        if (isset($_POST["f_user_hire"]) || isset($_POST["f_done"])) {
+
+            //applicantActions available for Clients i.e. Hire & Close project
+            $applicantActionsSQL=$projectDetails->applicantActions($projectID);
+            $data['applicantActions'] = $applicantActionsSQL;
+
+        }
 
 
 		$this->view("projectDetailsView",$data);
