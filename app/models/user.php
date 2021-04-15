@@ -204,20 +204,23 @@ Class User
 
     function logout()
     {
-        //logged in
-        if(isset($_SESSION['freelancerID'])) {
+//        //logged in
+//        if(isset($_SESSION['freelancerID'])) {
+//
+//            unset($_SESSION['Username']);
+//            unset($_SESSION['freelancerID']);
+//            unset($_SESSION['Usertype']);
+//
+//        }elseif (isset($_SESSION['clientID'])){
+//
+//            unset($_SESSION['Username']);
+//            unset($_SESSION['clientID']);
+//            unset($_SESSION['Usertype']);
+//
+//        }
 
-            unset($_SESSION['Username']);
-            unset($_SESSION['freelancerID']);
-            unset($_SESSION['Usertype']);
-
-        }elseif (isset($_SESSION['clientID'])){
-
-            unset($_SESSION['Username']);
-            unset($_SESSION['clientID']);
-            unset($_SESSION['Usertype']);
-
-        }
+        session_start();
+        session_unset();
 
         header("Location:". ROOT . "loginReg");
         die;
