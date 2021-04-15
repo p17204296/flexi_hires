@@ -2,10 +2,6 @@
 
 $this->view("partialsHeader",$data);
 
-$row=$data['browseProjectsTable'];//Projects details from table
-
-//$data['searchQuery'];
-
  ?>
 
 <!--main body-->
@@ -89,10 +85,11 @@ $row=$data['browseProjectsTable'];//Projects details from table
                           <td>Client ID</td>
                           <td>Posted on</td>
                       </tr>
+                      <p> projectId Post: <?= $_SESSION["projectID"]; ?></p>
                       <?php
-                      if(is_array($data['browseProjectsTable'])):
+                      if (is_array($data['browseProjectsTable'])):
                           foreach ($data['browseProjectsTable'] as $row):
-                            echo '
+                            echo ' 
                             <form action="'. ROOT .'browseProjects" method="post">
                             <input type="hidden" name="pid" value="' .$row->projectID.'">
                                 <tr>
@@ -101,7 +98,7 @@ $row=$data['browseProjectsTable'];//Projects details from table
                                 <td>'.$row->category.'</td>
                                 <td>'.$row->budget.'</td>
                                 <td>'.$row->clientID.'</td>
-                                <td>'.$row->timestamp.'</td>
+                                <td>'.date("Y-m-d",strtotime($row->timestamp)).'</td>
                                 </tr>
                             </form>
                             ';
