@@ -28,7 +28,7 @@
       <?php
         //Check if User Logged In is a Client
         }else if (isset($_SESSION["Username"]) && $_SESSION["Usertype"]==2){ //If Logged in Then DO...?>
-          <nav class="right-align-text">
+          <nav class="right-align-text" style="background-color: saddlebrown">
             <a href='<?=ROOT?>home'>Home</a>
             <a href='#'>Explore Freelancers</a>
             <a href='<?=ROOT?>browseProjects'>Browse Projects</a>
