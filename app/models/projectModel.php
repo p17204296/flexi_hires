@@ -5,7 +5,6 @@ Class projectModel
 
     function browseProjectsSQL($usertype, $projectValid)
     {
-
         if (isset($_SESSION["Username"]) && $usertype) {
 
             if (isset($_POST["recentProjects"])) {
@@ -36,8 +35,7 @@ Class projectModel
             }
 
             if(isset($_SESSION["projectID"])){
-//                $_SESSION["projectID"]=$arr['projectID'];
-//                $_SESSION["projectID"]=$_POST["pid"];
+
                 header("location:". ROOT . "projectDetails");
             }
 
@@ -54,7 +52,6 @@ Class projectModel
 
     function searchProjectsSQL($userType, $POST, $whereCondition, $projectValid)
     {
-
         if (isset($_SESSION["Username"]) && $userType && isset($POST)) {
 
             $query = "select * from projects where $whereCondition and $projectValid";
@@ -66,16 +63,10 @@ Class projectModel
                 return $data;
             }
 
-
         } else {
 
             header("location:". ROOT . "home");
         }
-
-//        if(isset($_POST["pid"])){
-//            $_SESSION["projectID"]=$_POST["pid"];
-//            header("location:". ROOT . "projectDetails");
-//        }
 
         return false;
 
@@ -84,7 +75,6 @@ Class projectModel
     function postProjectSQL($POST)
     {
         if (isset($_SESSION["Username"]) && isset($POST["postProject"]) && $_SESSION["Usertype"] == 2){
-
 
             $arr['clientID']=$_SESSION["clientID"];
             $arr['projectTitle'] = $POST['projectTitle'];
@@ -101,23 +91,18 @@ Class projectModel
             {
 
                 return $data[0];
-
             }
 
         }
         else{
-            $arr['user_name']="";
+
             header("location:". ROOT . "home");
         }
-
-//        if (isset($_SESSION["projectID"])) {
-//            header("location:". ROOT . "projectDetails");
-//            die;
-//        }
 
         return false;
 
     }
+
 
     //Project Details
 
@@ -140,16 +125,6 @@ Class projectModel
 
             header("location:". ROOT . "home");
         }
-
-//        if(isset($_POST["f_user"])){
-//            $_SESSION["f_user"]=$_POST["f_user"];
-//            header("location:". ROOT . "viewFreelancer");
-//        }
-//
-//        if(isset($_POST["c_letter"])){
-//            $_SESSION["c_letter"]=$_POST["c_letter"];
-//            header("location:". ROOT . "coverLetter");
-//        }
 
         return false;
 
@@ -193,7 +168,6 @@ Class projectModel
 
         return false;
 
-
     }
 
 
@@ -234,7 +208,6 @@ Class projectModel
                     return $data;
                 }
 
-
             } elseif (isset($_POST["f_done"])){
 
                 $arr['freelancerID'] = $_POST['freelancerID'];
@@ -252,7 +225,6 @@ Class projectModel
                     return $data;
                 }
 
-
             }
 
             $DB = new Database();
@@ -262,8 +234,6 @@ Class projectModel
 
                 return $data[0];
             }
-
-//                header("location:" . ROOT . "projectDetails");
 
         } else {
 
@@ -289,6 +259,44 @@ Class projectModel
                 return $data[0];
 
             }
+
+        } else {
+
+            header("location:". ROOT . "home");
+        }
+
+        return false;
+
+    }
+
+
+    //Edit Project Page
+
+    function editProject($POST)
+    {
+        if (isset($_POST["editProject"]) && isset($_SESSION["projectID"])) {
+
+            $projectID=$_SESSION["projectID"];
+            $arr['projectTitle'] = $POST['projectTitle'];
+            $arr['category'] = $POST['category'];
+            $arr['description'] = $POST['description'];
+            $arr['budget'] = $POST['budget'];
+            $arr['dueDate'] = $POST['dueDate'];
+
+            $query = "UPDATE projects SET projectTitle=:projectTitle, category=:category, description=:description, budget=:budget, dueDate=:dueDate, projectStatus='Advertised', valid=1 WHERE projectID=$projectID";
+
+            $DB = new Database();
+            $data = $DB->read($query, $arr);
+            if (is_array($data)) {
+
+                return $data[0];
+
+            }
+
+            if (isset($_POST['editProject'])):
+
+            header("location:". ROOT . "projectDetails");
+            endif;
 
         } else {
 

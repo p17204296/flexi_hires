@@ -22,9 +22,10 @@ Class projectDetails extends Controller
         $projectDetailsTable=$projectDetails->projectDetailsSQL();
         $data['projectDetailsTable'] = $projectDetailsTable;
 
-        //Applicant Info - for Open Projects
+        //Project ID
         $projectID = $_SESSION["projectID"];
 
+        //Applicant Info - for Open Projects
         $viewApplicantTable = $projectDetails->viewApplicants('applied', $projectID );
         $data['liveApplicants'] = $viewApplicantTable;
 
@@ -51,4 +52,38 @@ Class projectDetails extends Controller
 
 	}
 
-}
+    function editProject()
+    {
+
+        $user = $this->loadModel("user");
+
+        if(!$result = $user->check_logged_in())
+        {
+
+            header("Location:". ROOT . "loginReg");
+            die;
+        }
+
+        $data['page_title'] = "Edit Project";
+
+        $projectDetails = $this->loadModel("projectModel");
+
+        //Project Info
+        $projectDetailsTable=$projectDetails->projectDetailsSQL();
+        $data['projectDetailsTable'] = $projectDetailsTable;
+
+        if (isset($_POST["editProject"])) {
+
+            $editProjectSQL=$projectDetails->editProject($_POST);
+            $data['editProject'] = $editProjectSQL;
+
+        }
+
+
+
+        $this->view("editProjectView",$data);
+
+    }
+
+
+    }

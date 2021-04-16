@@ -30,7 +30,7 @@ $this->view("partialsHeader",$data);
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Project Description</label>
                     <div class="col-sm-5">
-                        <textarea class="form-control" rows="12" name="description"></textarea>
+                        <textarea class="form-control" rows="12" cols="100" name="description"></textarea>
                     </div>
                 </div>
 

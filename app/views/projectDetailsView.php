@@ -10,7 +10,7 @@ if ($_SESSION["Usertype"]==1){
     $textBtn="Apply";
 
 } elseif ($_SESSION["Usertype"]==2 && $_SESSION["clientID"]==$row4->clientID){
-    $linkBtn="" . ROOT . "editJob";
+    $linkBtn="" . ROOT . "projectDetails/editProject";
     $textBtn="Edit Project";
 } else {
     $linkBtn="";
@@ -197,7 +197,7 @@ if ($_SESSION["Usertype"]==1){
 }
 //if($_SESSION["clientID"]!=$row->clientID){
 elseif ($_SESSION["Usertype"]==2 && $_SESSION["clientID"]==$row4->clientID){
-    $linkBtn="" . ROOT . "editJob";
+    $linkBtn="" . ROOT . "projectDetails/editProject";
     $textBtn="Edit Project";
 }else{
     echo "<script>
