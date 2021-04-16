@@ -26,8 +26,8 @@ Class clientsProfile extends Controller
         $postedAdvertsTable=$clientProfileModel->viewProjects('valid=1');
         $data['postedAdvertsTable'] = $postedAdvertsTable;
 
-        //Previous Projects
-        $prevProjectsTable=$clientProfileModel->viewProjects('valid=0');
+        //Completed/Closed Projects
+        $prevProjectsTable=$clientProfileModel->viewProjects('valid=3');
         $data['prevProjectsTable'] =  $prevProjectsTable;
 
         //Load freelancerProfileModel
@@ -36,9 +36,16 @@ Class clientsProfile extends Controller
         //Hired Freelancers
         $hiredTable=$globalProfileModel->viewProjects($_SESSION["Usertype"] == 2, 'c_username', 'booked.valid=1');
         $data['hiredTable'] = $hiredTable;
+
         //Previously Hired
-        $prevHiredTable=$globalProfileModel->viewProjects($_SESSION["Usertype"] == 2, 'c_username', 'booked.valid=1');
+        $prevHiredTable=$globalProfileModel->viewProjects($_SESSION["Usertype"] == 2, 'c_username', 'booked.valid=0');
         $data['prevHiredTable'] = $prevHiredTable;
+
+        if (isset($_POST["pid"])) {
+            $_SESSION["projectID"] = $_POST["pid"];
+            header("location:". ROOT . "projectDetails");
+        }
+
 
         $this->view("clientsProfileView",$data);
 

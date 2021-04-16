@@ -110,7 +110,7 @@ $row=$data['freelancerTable'];//Freelancer details from table
       </h4>
     </div>
     <div class="panel">
-      <h3 class="panel-heading blue-text">Completed Projects</h3>
+      <h3 class="panel-heading blue-text">Closed/Completed Projects</h3>
       <h4 class="panel-body">
         <table style="width:100%">
           <tr>

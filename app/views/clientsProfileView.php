@@ -105,7 +105,7 @@ $row=$data['clientTable'];//Client details from table
         </h4>
       </div>
       <div class="panel">
-        <h3 class="panel-heading blue-text">Previous Projects</h3>
+        <h3 class="panel-heading blue-text">Completed/Closed Projects</h3>
         <h4 class="panel-body">
           <table style="width:100%">
             <tr>
@@ -113,7 +113,7 @@ $row=$data['clientTable'];//Client details from table
               <td>Project Title</td>
               <td>Posted on</td>
             </tr>
-            <?php
+              <?php
             if(is_array($data['prevProjectsTable'])):
               foreach ($data['prevProjectsTable'] as $row3):
                 echo '
@@ -154,7 +154,7 @@ $row=$data['clientTable'];//Client details from table
                 <td>'.$row4->projectID.'</td>
                 <td><input type="submit" class="btn" value="'.$row4->projectTitle.'"></td>
                 </form>
-                <form action="clientsProfile.php" method="post">
+                <form action="'. ROOT .'clientsProfile" method="post">
                 <input type="hidden" name="viewFreelancer" value="'.$row4->f_username.'">
                 <td><input type="submit" class="btn" value="'.$row4->f_username.'"></td>
                 <td>'.$row4->timestamp.'</td>
@@ -189,7 +189,7 @@ $row=$data['clientTable'];//Client details from table
                         <td>'.$row5->projectID.'</td>
                         <td><input type="submit" class="btn" value="'.$row5->projectTitle.'"></td>
                 </form>
-                <form action="clientsProfile.php" method="post">
+                <form action="'. ROOT .'clientsProfile" method="post">
                         <input type="hidden" name="viewFreelancer" value="'.$row5->f_username.'">
                         <td><input type="submit" class="btn" value="'.$row5->f_username.'"></td>
                         <td>'.$row5->timestamp.'</td>
