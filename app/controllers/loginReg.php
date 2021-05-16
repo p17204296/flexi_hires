@@ -9,12 +9,24 @@ Class loginReg extends Controller
         if(isset($_POST['register']))
         {
             $user = $this->loadModel("user");
-            $user->register($_POST);
+
+            // Process form
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                $user->register($_POST);
+            }
 
         }elseif(isset($_POST['login'])){
 
             $user = $this->loadModel("user");
-            $user->login($_POST);
+
+            // Process form
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanitize POST data
+                $POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                $user->login($POST);
+            }
         }
 
 
