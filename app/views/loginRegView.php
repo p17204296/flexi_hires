@@ -61,11 +61,13 @@ $this->view("partialsHeader",$data);
 
 <section class="container">
     <div class="login-page">
- <p><?=$_SESSION['Username'] . " | Usertype: " . $_SESSION['Usertype'] ?></p>
         <div class="form">
             <h2>Login</h2>
             <?php if (isset($_POST['login'])): ?>
                 <p class="red-text"><?php check_message() ?></p>
+              <?php endif; ?>
+              <?php if (isset($_SESSION['RegSuccess'])): ?>
+                <p class="green-text"><?= $_SESSION['RegSuccess'] ?></p>
               <?php endif; ?>
             <form class="login-form" method="post">
                 <input type="text" name="username" placeholder="username" required />
@@ -83,6 +85,9 @@ $this->view("partialsHeader",$data);
             <h2>Register</h2>
             <?php if (isset($_POST['register'])): ?>
                 <p class="red-text"><?php check_message() ?></p>
+            <?php endif; ?>
+            <?php if (isset($_SESSION['RegSuccess'])): ?>
+              <p class="green-text"><?= $_SESSION['RegSuccess'] ?></p>
             <?php endif; ?>
         <form class="register-form" method="post">
             <input type="text" name="username" placeholder="username" required />
@@ -104,12 +109,6 @@ $this->view("partialsHeader",$data);
 
 
 </section>
-
-<!--<script>-->
-<!--    $('.message a').click(function(){-->
-<!--        $('form').animate({height: "toggle", opacity: "toggle"}, "slow");-->
-<!--    });-->
-<!--</script>-->
 
 <?php
 

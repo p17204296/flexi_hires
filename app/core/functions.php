@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 function show($stuff)
 {
@@ -16,4 +16,3 @@ function check_message()
 		unset($_SESSION['error']);
 	}
 }
-
