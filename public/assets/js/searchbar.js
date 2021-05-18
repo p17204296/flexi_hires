@@ -37,15 +37,15 @@ function buildResultFromData(data) {
   const pRole = document.createElement('p');
   const pSkill = document.createElement('p');
   const pTitle = document.createElement('p');
-
+  const loginMsg = document.createElement('a');
+  const lineBreak = document.createElement('br');
 
   li.id ="li-searchbar";
   img.id = "img-searchbar";
-  img.src = `images/${data.imgID}.png`;
+  img.src = `assets/images/${data.imgID}.png`;
   img.alt = `${data.imgID}`;
-  // a.id ="";
   a.textContent = data.name;
-  a.href = `services.html?id=${data.id}`;
+  a.href = `loginReg`;
 
   pRole.id = "search-role";
   pRole.textContent = data.role;
@@ -53,6 +53,8 @@ function buildResultFromData(data) {
   pSkill.textContent = data.category;
   pTitle.id = "search-title";
   pTitle.textContent = data.title;
+  loginMsg.textContent = `Please Login To Hire This Freelancer`;
+  loginMsg.href = `loginReg`;
 
 
   li.appendChild(img);
@@ -60,7 +62,8 @@ function buildResultFromData(data) {
   li.appendChild(pRole);
   li.appendChild(pSkill);
   li.appendChild(pTitle);
-
+  li.appendChild(lineBreak);
+  li.appendChild(loginMsg);
 
   return li;
 }

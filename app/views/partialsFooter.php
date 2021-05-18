@@ -28,5 +28,10 @@
 <script src="https://unpkg.com/scrollreveal"></script>
 <!-- MAIN JS -->
 <script src="<?=ASSETS?>js/scripts.js"></script> <!-- Javascript file -->
+<!-- SEARCH BAR DATA -->
+<script src="<?=ASSETS?>js/servicesData.js"></script>
+<!-- SEARCBAR JS -->
+<script src="<?=ASSETS?>js/searchbar.js"></script>
+
 </body>
 </html>

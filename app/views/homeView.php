@@ -11,7 +11,7 @@ $this->view("partialsIndexHeader",$data);
     <h1>FLEXI-HIRES - Find the perfect freelance services for your business</h1>
   </article>
 
-  <a href="search.html" class="index1-btn">Search Services Available</a>
+  <a href="<?=ROOT?>search" class="index1-btn">Search Services Available</a>
 
   <article class="main-head-index2">
     <h2 class="reveal-hero1">A whole world of freelance talent at your fingertips</h2>
@@ -23,7 +23,7 @@ $this->view("partialsIndexHeader",$data);
       <li><p class="reveal-hero5">Find the right freelancer to begin working on your project within minutes.</p></li>
 
       <li><h6 class="reveal-hero6">&#11088; 24/7 support</h6></li>
-      <li><p class="reveal-hero7">Questions? Our round-the-clock support team is available to help anytime, anywhere.</p><a href="search.html" class="index2-btn reveal-hero8">Click Here to Get Started!</a></li>
+      <li><p class="reveal-hero7">Questions? Our round-the-clock support team is available to help anytime, anywhere.</p><a href="<?=ROOT?>search" class="index2-btn reveal-hero8">Click Here to Get Started!</a></li>
 
     </ul>
 
@@ -41,19 +41,19 @@ $this->view("partialsIndexHeader",$data);
     <div class="container">
 
       <article class="cat-boxes float-container">
-        <a href="search.html?q=SEO">
+        <a href="<?=ROOT?>search?q=SEO">
           <img src="<?=ASSETS?>images/seo@2x.webp" alt="SEO Category" class="responsive-img curve-img">
           <h3 class="cat-deco float-cat-text purple-text text-align-center">SEO & SEM</h3>
         </a>
       </article>
       <article class="cat-boxes float-container">
-        <a href="search.html?q=videography">
+        <a href="<?=ROOT?>search?q=videography">
           <img src="<?=ASSETS?>images/videography@1x.jpg" alt="videography Category" class="responsive-img curve-img">
           <h3 class="cat-deco float-cat-text purple-text text-align-center">Videography</h3>
         </a>
       </article>
       <article class="cat-boxes float-container">
-        <a href="search.html?q=content-writing">
+        <a href="<?=ROOT?>search?q=content-writing">
           <img src="<?=ASSETS?>images/content-writing@2x.webp" alt="Content Writing Category" class="responsive-img curve-img">
           <h3 class="cat-deco float-cat-text purple-text text-align-center ">Content Writing</h3>
         </a>
@@ -73,7 +73,7 @@ $this->view("partialsIndexHeader",$data);
           <h3>Content Writing</h3>
           <p class="cat-details">Content Writing Freelancers available...</p>
           <br>
-          <a href="search.html?q=content-writing" class="btn explore-btn">Search Category</a>
+          <a href="search?q=content-writing" class="btn explore-btn">Search Category</a>
         </div>
       </article>
 
@@ -83,7 +83,7 @@ $this->view("partialsIndexHeader",$data);
           <h3>Web Development</h3>
           <p class="cat-details">Web Developer Freelancers available...</p>
           <br>
-          <a href="search.html?q=web-development" class="btn explore-btn">Search Category</a>
+          <a href="<?=ROOT?>search?q=web-development" class="btn explore-btn">Search Category</a>
         </div>
       </article>
 
@@ -91,14 +91,14 @@ $this->view("partialsIndexHeader",$data);
         <h3>Videography</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <br>
-        <a href="search.html" class="btn explore-btn">Search Category</a>
+        <a href="<?=ROOT?>search" class="btn explore-btn">Search Category</a>
       </article>
 
       <article class="explore-boxes">
         <h3>Consulting</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <br>
-        <a href="search.html?q=consulting" class="btn explore-btn">Search Category</a>
+        <a href="<?=ROOT?>search?q=consulting" class="btn explore-btn">Search Category</a>
       </article>
 
       <div class="clearfix"></div>

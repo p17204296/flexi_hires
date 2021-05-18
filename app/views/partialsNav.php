@@ -9,8 +9,8 @@ if (!isset($_SESSION["Username"])){ //If not Logged in Then DO..   ?>
     <nav id="menu" class="right-align-text">
       <ul class="navbar">
         <li><a href='<?=ROOT?>home'>Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="search.html">Search</a></li>
+        <li><a href="<?=ROOT?>about">About</a></li>
+        <li><a href="<?=ROOT?>search">Search</a></li>
         <li><a href='<?=ROOT?>loginReg'>Register/LogIn</a></li>
       </ul>
     </nav>
