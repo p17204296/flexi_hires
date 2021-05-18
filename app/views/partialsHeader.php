@@ -12,5 +12,5 @@
   </head>
   <body>
 
-    <section class="container">
+    <!-- <section class="container"> -->
      <?php $this->view("partialsNav",$data);  ?>
