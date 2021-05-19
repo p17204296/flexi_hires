@@ -19,8 +19,17 @@ Class editFreelancerProfile extends Controller
         if(isset($_POST['editFreelancer'])) {
             $editFreelancerProfile = $this->loadModel("freelancerProfileModel");
 
-            //Edit Freelancer Function
-            $editFreelancerProfile->editFreelancerDetails($_POST);
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                //Edit Freelancer Function
+                $editFreelancerProfile->editFreelancerDetails($_POST);
+
+            }
+
+
         }
 
         //Contact Information

@@ -19,8 +19,16 @@ Class editClientProfile extends Controller
         if (isset($_POST['editClient'])) {
             $editClientProfile = $this->loadModel("clientProfileModel");
 
-            //Edit Client Function
-            $editClientProfile->editClientDetails($_POST);
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                //Edit Client Function
+                $editClientProfile->editClientDetails($_POST);
+
+            }
+
         }
 
         //Contact Information
