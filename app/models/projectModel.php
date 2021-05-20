@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-Class projectModel
+class projectModel
 {
 
     function browseProjectsSQL($usertype, $projectValid)
@@ -11,18 +11,18 @@ Class projectModel
 
                 $query = "select * from projects where $projectValid ORDER BY timestamp DESC";
 
-            }elseif (isset($_POST["oldProjects"])){
+            } elseif (isset($_POST["oldProjects"])) {
 
                 $query = "select * from projects where $projectValid";
 
-            }else{
+            } else {
 
                 $query = "select * from projects where $projectValid ORDER BY timestamp DESC";
             }
 
-            if(isset($_POST["pid"])){
-                $_SESSION["projectID"]=$_POST["pid"];
-                header("location:". ROOT . "projectDetails");
+            if (isset($_POST["pid"])) {
+                $_SESSION["projectID"] = $_POST["pid"];
+                header("location:" . ROOT . "projectDetails");
 
             }
 
@@ -34,15 +34,15 @@ Class projectModel
                 return $data;
             }
 
-            if(isset($_SESSION["projectID"])){
+            if (isset($_SESSION["projectID"])) {
 
-                header("location:". ROOT . "projectDetails");
+                header("location:" . ROOT . "projectDetails");
             }
 
 
         } else {
 
-            header("location:". ROOT . "home");
+            header("location:" . ROOT . "home");
         }
 
 
@@ -65,7 +65,7 @@ Class projectModel
 
         } else {
 
-            header("location:". ROOT . "home");
+            header("location:" . ROOT . "home");
         }
 
         return false;
@@ -74,9 +74,9 @@ Class projectModel
 
     function postProjectSQL($POST)
     {
-        if (isset($_SESSION["Username"]) && isset($POST["postProject"]) && $_SESSION["Usertype"] == 2){
+        if (isset($_SESSION["Username"]) && isset($POST["postProject"]) && $_SESSION["Usertype"] == 2) {
 
-            $arr['clientID']=$_SESSION["clientID"];
+            $arr['clientID'] = $_SESSION["clientID"];
             $arr['projectTitle'] = $POST['projectTitle'];
             $arr['category'] = $POST['category'];
             $arr['description'] = $POST['description'];
@@ -86,17 +86,15 @@ Class projectModel
             $query = "INSERT INTO projects (clientID, projectTitle, category, description, budget, dueDate, projectStatus, valid) VALUES (:clientID, :projectTitle, :category, :description,:budget, :dueDate, 'Advertised', 1)";
 
             $DB = new Database();
-            $data = $DB->write($query,$arr);
-            if (is_array($data))
-            {
+            $data = $DB->write($query, $arr);
+            if (is_array($data)) {
 
                 return $data[0];
             }
 
-        }
-        else{
+        } else {
 
-            header("location:". ROOT . "home");
+            header("location:" . ROOT . "home");
         }
 
         return false;
@@ -109,7 +107,7 @@ Class projectModel
     function projectDetailsSQL()
     {
 
-        if (isset($_SESSION["Username"]) && isset( $_SESSION["projectID"]) ) {
+        if (isset($_SESSION["Username"]) && isset($_SESSION["projectID"])) {
 
             $query = "select * from projects where projectID=:projectID limit 1";
             $arr['projectID'] = $_SESSION["projectID"];
@@ -123,7 +121,7 @@ Class projectModel
 
         } else {
 
-            header("location:". ROOT . "home");
+            header("location:" . ROOT . "home");
         }
 
         return false;
@@ -133,7 +131,7 @@ Class projectModel
 
     function viewApplicants($table, $projectID)
     {
-        if (isset($_SESSION["Username"]) && isset($_SESSION["projectID"]) ) {
+        if (isset($_SESSION["Username"]) && isset($_SESSION["projectID"])) {
 
             $query = "select * from $table where projectID='$projectID'";
 
@@ -145,17 +143,17 @@ Class projectModel
                 return $data;
             }
 
-            if(isset($_POST["f_username"])){
+            if (isset($_POST["f_username"])) {
 
-                $_SESSION["f_user"]=$_POST["f_username"];
+                $_SESSION["f_user"] = $_POST["f_username"];
                 header("location:" . ROOT . "viewFreelancerProfile");
 
-            }elseif (isset($_POST["coverLetter"])) {
+            } elseif (isset($_POST["coverLetter"])) {
 
                 $_SESSION["coverLetter"] = $_POST["coverLetter"];
                 header("location:" . ROOT . "coverLetter");
 
-            } elseif (isset($_POST["f_done"])){
+            } elseif (isset($_POST["f_done"])) {
 
                 $_SESSION["f_done"] = $_POST["f_done"];
                 header("location:" . ROOT . "projectDetails");
@@ -163,7 +161,7 @@ Class projectModel
 
         } else {
 
-            header("location:". ROOT . "home");
+            header("location:" . ROOT . "home");
         }
 
         return false;
@@ -208,7 +206,7 @@ Class projectModel
                     return $data;
                 }
 
-            } elseif (isset($_POST["f_done"])){
+            } elseif (isset($_POST["f_done"])) {
 
                 $arr['freelancerID'] = $_POST['freelancerID'];
                 //Update Booked table
@@ -228,7 +226,7 @@ Class projectModel
             }
 
             $DB = new Database();
-            $data = $DB->read($query,$arr);
+            $data = $DB->read($query, $arr);
 
             if (is_array($data)) {
 
@@ -237,7 +235,7 @@ Class projectModel
 
         } else {
 
-            header("location:". ROOT . "home");
+            header("location:" . ROOT . "home");
         }
 
         return false;
@@ -247,7 +245,7 @@ Class projectModel
 
     function viewRecruiter()
     {
-        if (isset($_SESSION["Username"]) && isset( $_SESSION["projectID"])) {
+        if (isset($_SESSION["Username"]) && isset($_SESSION["projectID"])) {
 
             $query = "select * from projects,clients where projects.projectID=:projectID and projects.clientID=clients.clientID limit 1";
             $arr['projectID'] = $_SESSION["projectID"];
@@ -262,7 +260,7 @@ Class projectModel
 
         } else {
 
-            header("location:". ROOT . "home");
+            header("location:" . ROOT . "home");
         }
 
         return false;
@@ -276,7 +274,7 @@ Class projectModel
     {
         if (isset($_POST["editProject"]) && isset($_SESSION["projectID"])) {
 
-            $projectID=$_SESSION["projectID"];
+            $projectID = $_SESSION["projectID"];
             $arr['projectTitle'] = $POST['projectTitle'];
             $arr['category'] = $POST['category'];
             $arr['description'] = $POST['description'];
@@ -295,18 +293,17 @@ Class projectModel
 
             if (isset($_POST['editProject'])):
 
-            header("location:". ROOT . "projectDetails");
+                header("location:" . ROOT . "projectDetails");
             endif;
 
         } else {
 
-            header("location:". ROOT . "home");
+            header("location:" . ROOT . "home");
         }
 
         return false;
 
     }
-
 
 
 }

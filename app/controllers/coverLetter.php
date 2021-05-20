@@ -1,15 +1,14 @@
 <?php
 
-Class coverLetter extends Controller
+class coverLetter extends Controller
 {
     function index()
     {
 
         $user = $this->loadModel("user");
 
-        if(!$result = $user->check_logged_in())
-        {
-            header("Location:". ROOT . "loginReg");
+        if (!$result = $user->check_logged_in()) {
+            header("Location:" . ROOT . "loginReg");
             die;
         }
 
@@ -25,7 +24,7 @@ Class coverLetter extends Controller
 
         endif;
 
-        $this->view("coverLetterView",$data);
+        $this->view("coverLetterView", $data);
 
 
     }

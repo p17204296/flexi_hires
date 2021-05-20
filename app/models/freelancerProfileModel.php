@@ -1,14 +1,14 @@
-<?php 
+<?php
 
-Class freelancerProfileModel
+class freelancerProfileModel
 {
 
     function editFreelancerDetails($POST)
     {
-        if (isset($_SESSION["Username"]) && isset($POST["editFreelancer"]) && $_SESSION["Usertype"] == 1){
+        if (isset($_SESSION["Username"]) && isset($POST["editFreelancer"]) && $_SESSION["Usertype"] == 1) {
 
 
-            $user_name=$_SESSION["Username"];
+            $user_name = $_SESSION["Username"];
             $arr['fname'] = $POST['fname'];
             $arr['sname'] = $POST['sname'];
             $arr['email'] = $POST['email'];
@@ -24,22 +24,20 @@ Class freelancerProfileModel
 
             $query = "UPDATE freelancers SET fname=:fname, sname=:sname, email=:email, address=:address,  city=:city,  postcode=:postcode, dob=:dob, profileSummary=:profileSummary, skills=:skills, experience=:experience,education=:education, minimumRate=:minimumRate  WHERE username='$user_name'";
             $DB = new Database();
-            $data = $DB->write($query,$arr);
-            if(is_array($data))
-            {
+            $data = $DB->write($query, $arr);
+            if (is_array($data)) {
 
                 return $data[0];
 
             }
 
-        }
-        else{
-            $arr['user_name']="";
-            header("location:". ROOT . "home");
+        } else {
+            $arr['user_name'] = "";
+            header("location:" . ROOT . "home");
         }
 
         if (isset($_POST["editFreelancer"])) {
-            header("location:". ROOT . "freelancersProfile");
+            header("location:" . ROOT . "freelancersProfile");
             die;
         }
 

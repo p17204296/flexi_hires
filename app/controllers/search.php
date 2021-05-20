@@ -1,11 +1,11 @@
 <?php
 
-Class Search extends Controller
+class Search extends Controller
 {
-	function index()
-	{
-		$data['page_title'] = "Search";
-		$this->view("searchView",$data);
-	}
+    function index()
+    {
+        $data['page_title'] = "Search";
+        $this->view("searchView", $data);
+    }
 
 }

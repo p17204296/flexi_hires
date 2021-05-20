@@ -1,15 +1,14 @@
 <?php
 
-Class postProject extends Controller
+class postProject extends Controller
 {
-	function index()
-	{
+    function index()
+    {
 
         $user = $this->loadModel("user");
 
-        if(!$result = $user->check_logged_in())
-        {
-            header("Location:". ROOT . "loginReg");
+        if (!$result = $user->check_logged_in()) {
+            header("Location:" . ROOT . "loginReg");
             die;
         }
 
@@ -23,8 +22,8 @@ Class postProject extends Controller
             $advertiseProject->postProjectSQL($_POST);
         }
 
-		$this->view("postProjectView",$data);
+        $this->view("postProjectView", $data);
 
-	}
+    }
 
 }

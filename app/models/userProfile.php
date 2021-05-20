@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 //Class User
 //{
@@ -167,7 +167,7 @@
 //}
 
 
-Class userProfile
+class userProfile
 {
 
     function login($POST)
@@ -177,55 +177,52 @@ Class userProfile
         $_SESSION['error'] = "";
 
         //CHECK IF USERTYPE SELECTED BEFORE LOGIN
-        if(!isset($POST['usertype']))
-        {
+        if (!isset($POST['usertype'])) {
 
             $_SESSION['error'] = "Please select usertype";
 
 
-        }elseif (isset($POST['login']) && $POST['usertype']==="freelancers"){ //START FREELANCER LOGIN
+        } elseif (isset($POST['login']) && $POST['usertype'] === "freelancers") { //START FREELANCER LOGIN
 
             $arr['user_name'] = $POST['username'];
             $arr['password'] = md5($POST['password']);
 
             $query = "select * from freelancers where username = :user_name && password = :password limit 1";
-            $data = $DB->read($query,$arr);
-            if(is_array($data))
-            {
+            $data = $DB->read($query, $arr);
+            if (is_array($data)) {
                 //logged in
                 $_SESSION['freelancerID'] = $data[0]->freelancerID;
                 $_SESSION['Username'] = $data[0]->username;
                 $_SESSION['Usertype'] = 1;
 
-                header("Location:". ROOT . "freelancersProfile");
+                header("Location:" . ROOT . "freelancersProfile");
                 die;
 
-            }else{
+            } else {
 
                 $_SESSION['error'] = "please enter valid login details";
 
             }
 
-        //END FREELANCER LOGIN
+            //END FREELANCER LOGIN
 
-        }elseif (isset($POST['login']) && $POST['usertype']==="clients"){ //START CLIENT LOGIN
+        } elseif (isset($POST['login']) && $POST['usertype'] === "clients") { //START CLIENT LOGIN
 
-        $arr['user_name'] = $POST['username'];
+            $arr['user_name'] = $POST['username'];
             $arr['password'] = md5($POST['password']);
 
             $query = "select * from clients where username = :user_name && password = :password limit 1";
-            $data = $DB->read($query,$arr);
-            if(is_array($data))
-            {
+            $data = $DB->read($query, $arr);
+            if (is_array($data)) {
                 //logged in
                 $_SESSION['clientID'] = $data[0]->clientID;
                 $_SESSION['Username'] = $data[0]->username;
                 $_SESSION['Usertype'] = 2;
 
-                header("Location:". ROOT . "clientsProfile");
+                header("Location:" . ROOT . "clientsProfile");
                 die;
 
-            }else{
+            } else {
 
                 $_SESSION['error'] = "please enter valid login details";
 
@@ -245,31 +242,29 @@ Class userProfile
         $_SESSION['error'] = "";
 
         //CHECK IF USERTYPE SELECTED BEFORE REGISTERING
-        if(!isset($POST['usertype']))
-        {
+        if (!isset($POST['usertype'])) {
 
             $_SESSION['error'] = "Please select usertype";
 
 
-        }elseif($POST['password']!==$POST['repassword']){
+        } elseif ($POST['password'] !== $POST['repassword']) {
 
             $_SESSION['error'] = "Password does not match";
 
-        }elseif ($POST['username']==$POST['password']){
+        } elseif ($POST['username'] == $POST['password']) {
 
             $_SESSION['error'] = "Username and Password cannot be the same. Please Try Again.";
 
-        }elseif (isset($POST['register']) && $POST['usertype']==="freelancers"){
+        } elseif (isset($POST['register']) && $POST['usertype'] === "freelancers") {
             //START FREELANCER REGISTRATION
 
             $arr['user_name'] = $POST['username'];
 
             $query = "select * from freelancers,clients where freelancers.username = :user_name or clients.username = :user_name ";
-            $data = $DB->read($query,$arr);
-            if(count($data) > 0)
-            {
+            $data = $DB->read($query, $arr);
+            if (count($data) > 0) {
                 $_SESSION['error'] = "The username is already taken.";
-            }else{
+            } else {
 
                 $arr['user_name'] = $POST['username'];
                 $arr['fname'] = $POST['fname'];
@@ -279,32 +274,30 @@ Class userProfile
 
                 //FREELANCER REGISTRATION SQL
                 $query = "insert into freelancers (username, fname, sname, email, password) values (:user_name, :fname, :sname, :email, :password)";
-                $data = $DB->write($query,$arr);
-                if($data)
-                {
+                $data = $DB->write($query, $arr);
+                if ($data) {
                     //logged in
-    //                    $_SESSION['freelancerID'] = $data[0]->freelancerID;
-    //                    $_SESSION['Username'] = $data[0]->username;
-    //                    $_SESSION['Usertype'] = 1;
+                    //                    $_SESSION['freelancerID'] = $data[0]->freelancerID;
+                    //                    $_SESSION['Username'] = $data[0]->username;
+                    //                    $_SESSION['Usertype'] = 1;
 
-                    header("Location:". ROOT . "editFreelancersProfile");
+                    header("Location:" . ROOT . "editFreelancersProfile");
                     die;
                 }
 
             }
 
-        }elseif (isset($POST['register']) && $POST['usertype']==="clients"){
+        } elseif (isset($POST['register']) && $POST['usertype'] === "clients") {
             //START CLIENT REGISTRATION
 
             $arr['user_name'] = $POST['username'];
 
             $query = "select * from freelancers,clients where freelancers.username = :user_name or clients.username = :user_name ";
-            $data = $DB->read($query,$arr);
+            $data = $DB->read($query, $arr);
 
-            if(count($data) > 0)
-            {
+            if (count($data) > 0) {
                 $_SESSION['error'] = "This username is already taken.";
-            }else {
+            } else {
 
                 $arr['user_name'] = $POST['username'];
                 $arr['fname'] = $POST['fname'];
@@ -326,7 +319,7 @@ Class userProfile
                 }
             }
 
-        }else{
+        } else {
 
             $_SESSION['error'] = "please enter a valid username and password";
         }
@@ -336,14 +329,13 @@ Class userProfile
     {
 
         $DB = new Database();
-        if(isset($_SESSION['freelancerID'])) {
+        if (isset($_SESSION['freelancerID'])) {
 
             $arr['freelancerID'] = $_SESSION['freelancerID'];
 
             $query = "select * from freelancers where freelancerID = :freelancerID limit 1";
-            $data = $DB->read($query,$arr);
-            if(is_array($data))
-            {
+            $data = $DB->read($query, $arr);
+            if (is_array($data)) {
                 //logged in
                 $_SESSION['Username'] = $data[0]->username;
                 $_SESSION['freelancerID'] = $data[0]->freelancerID;
@@ -351,14 +343,13 @@ Class userProfile
                 return true;
             }
 
-        }elseif (isset($_SESSION['clientID'])){
+        } elseif (isset($_SESSION['clientID'])) {
 
             $arr['clientID'] = $_SESSION['clientID'];
 
             $query = "select * from clients where clientID = :clientID limit 1";
-            $data = $DB->read($query,$arr);
-            if(is_array($data))
-            {
+            $data = $DB->read($query, $arr);
+            if (is_array($data)) {
                 //logged in
                 $_SESSION['Username'] = $data[0]->username;
                 $_SESSION['clientID'] = $data[0]->clientID;
@@ -375,13 +366,13 @@ Class userProfile
     function logout()
     {
         //logged in
-        if(isset($_SESSION['freelancerID'])) {
+        if (isset($_SESSION['freelancerID'])) {
 
             unset($_SESSION['Username']);
             unset($_SESSION['freelancerID']);
             unset($_SESSION['Usertype']);
 
-        }elseif (isset($_SESSION['clientID'])){
+        } elseif (isset($_SESSION['clientID'])) {
 
             unset($_SESSION['Username']);
             unset($_SESSION['clientID']);
@@ -389,7 +380,7 @@ Class userProfile
 
         }
 
-        header("Location:". ROOT . "loginReg");
+        header("Location:" . ROOT . "loginReg");
         die;
     }
 

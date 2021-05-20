@@ -1,11 +1,11 @@
 <?php
 
-Class home extends Controller
+class home extends Controller
 {
-	function index()
-	{
+    function index()
+    {
         $data['page_title'] = "Home";
-        $this->view("homeView",$data);
+        $this->view("homeView", $data);
 
     }
 

@@ -1,66 +1,64 @@
 <?php
 
-Class projectDetails extends Controller
+class projectDetails extends Controller
 {
-	function index()
-	{
+    function index()
+    {
 
         $user = $this->loadModel("user");
 
-        if(!$result = $user->check_logged_in())
-        {
+        if (!$result = $user->check_logged_in()) {
 
-            header("Location:". ROOT . "loginReg");
+            header("Location:" . ROOT . "loginReg");
             die;
         }
 
-		$data['page_title'] = "Project Details";
+        $data['page_title'] = "Project Details";
 
         $projectDetails = $this->loadModel("projectModel");
 
         //Project Info
-        $projectDetailsTable=$projectDetails->projectDetailsSQL();
+        $projectDetailsTable = $projectDetails->projectDetailsSQL();
         $data['projectDetailsTable'] = $projectDetailsTable;
 
         //Project ID
         $projectID = $_SESSION["projectID"];
 
         //Applicant Info - for Open Projects
-        $viewApplicantTable = $projectDetails->viewApplicants('applied', $projectID );
+        $viewApplicantTable = $projectDetails->viewApplicants('applied', $projectID);
         $data['liveApplicants'] = $viewApplicantTable;
 
         //Applicant Info - for Closed Projects
-        $viewApplicantTable = $projectDetails->viewApplicants('booked', $projectID );
+        $viewApplicantTable = $projectDetails->viewApplicants('booked', $projectID);
         $data['closedApplicants'] = $viewApplicantTable;
 
         //Recruiter Info
-        $viewRecruiterTable=$projectDetails->viewRecruiter();
+        $viewRecruiterTable = $projectDetails->viewRecruiter();
         $data['viewRecruiter'] = $viewRecruiterTable;
 
         //Hire Freelancer
         if (isset($_POST["f_user_hire"]) || isset($_POST["f_done"])) {
 
             //applicantActions available for Clients i.e. Hire & Close project
-            $applicantActionsSQL=$projectDetails->applicantActions($projectID);
+            $applicantActionsSQL = $projectDetails->applicantActions($projectID);
             $data['applicantActions'] = $applicantActionsSQL;
 
         }
 
 
-		$this->view("projectDetailsView",$data);
+        $this->view("projectDetailsView", $data);
 
 
-	}
+    }
 
     function editProject()
     {
 
         $user = $this->loadModel("user");
 
-        if(!$result = $user->check_logged_in())
-        {
+        if (!$result = $user->check_logged_in()) {
 
-            header("Location:". ROOT . "loginReg");
+            header("Location:" . ROOT . "loginReg");
             die;
         }
 
@@ -69,17 +67,17 @@ Class projectDetails extends Controller
         $projectDetails = $this->loadModel("projectModel");
 
         //Project Info
-        $projectDetailsTable=$projectDetails->projectDetailsSQL();
+        $projectDetailsTable = $projectDetails->projectDetailsSQL();
         $data['projectDetailsTable'] = $projectDetailsTable;
 
         if (isset($_POST["editProject"])) {
 
-            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 // Sanitize POST data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-                $editProjectSQL=$projectDetails->editProject($_POST);
+                $editProjectSQL = $projectDetails->editProject($_POST);
                 $data['editProject'] = $editProjectSQL;
 
             }
@@ -87,10 +85,9 @@ Class projectDetails extends Controller
         }
 
 
-
-        $this->view("editProjectView",$data);
-
-    }
-
+        $this->view("editProjectView", $data);
 
     }
+
+
+}

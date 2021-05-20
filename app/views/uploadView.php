@@ -1,6 +1,6 @@
 <?php
 
-$this->view("partialsHeader",$data);
+$this->view("partialsHeader", $data);
 
 ?>
 
@@ -9,7 +9,7 @@ $this->view("partialsHeader",$data);
     <h2>Upload Project</h2>
     <section class="section background-white">
 
-<!--        <p>--><?php //check_message() ?><!--</p>-->
+        <!--        <p>--><?php //check_message() ?><!--</p>-->
 
         <div class="">
             <h4 class="">Upload Project</h4>
@@ -28,7 +28,9 @@ $this->view("partialsHeader",$data);
                     <textarea name="description" class="required message" placeholder="Description" rows="3"></textarea>
                     <p class="message-error form-error">Please enter a description.</p>
                 </div>
-                <div class=""><button class="btn" type="submit">Submit Button</button></div>
+                <div class="">
+                    <button class="btn" type="submit">Submit Button</button>
+                </div>
             </form>
         </div>
     </section>
@@ -38,5 +40,5 @@ $this->view("partialsHeader",$data);
 
 <?php
 
-$this->view("partialsFooter",$data);
+$this->view("partialsFooter", $data);
 ?>

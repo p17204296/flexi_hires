@@ -1,29 +1,29 @@
 <?php
 
-$this->view("partialsHeader",$data);
+$this->view("partialsHeader", $data);
 
 
- ?>
+?>
 
 <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="page-header">
-                    <h2>Post A Job Offer</h2>
-                </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="page-header">
+                <h2>Post A Job Offer</h2>
+            </div>
 
-                <form id="registrationForm" method="post" class="form-horizontal">
+            <form id="registrationForm" method="post" class="form-horizontal">
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Project Title</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" name="projectTitle" value="" />
+                        <input type="text" class="form-control" name="projectTitle" value=""/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Category</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" name="category" value="" />
+                        <input type="text" class="form-control" name="category" value=""/>
                     </div>
                 </div>
 
@@ -37,7 +37,7 @@ $this->view("partialsHeader",$data);
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Budget</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" name="budget" value="" />
+                        <input type="text" class="form-control" name="budget" value=""/>
                     </div>
                 </div>
 
@@ -51,7 +51,7 @@ $this->view("partialsHeader",$data);
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Deadline</label>
                     <div class="col-sm-5">
-                        <input type="date" class="form-control" name="dueDate" value="" placeholder="YYYY-MM-DD" />
+                        <input type="date" class="form-control" name="dueDate" value="" placeholder="YYYY-MM-DD"/>
                     </div>
                 </div>
 
@@ -62,11 +62,11 @@ $this->view("partialsHeader",$data);
                     </div>
                 </div>
             </form>
-            </div>
         </div>
     </div>
+</div>
 
-		<!--End main body-->
+<!--End main body-->
 
 
-<?php $this->view("partialsFooter",$data); ?>
+<?php $this->view("partialsFooter", $data); ?>

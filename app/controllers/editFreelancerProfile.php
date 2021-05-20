@@ -1,25 +1,24 @@
 <?php
 
-Class editFreelancerProfile extends Controller
+class editFreelancerProfile extends Controller
 {
-	function index()
-	{
+    function index()
+    {
 
         $user = $this->loadModel("user");
 
-        if(!$result = $user->check_logged_in())
-        {
-            header("Location:". ROOT . "loginReg");
+        if (!$result = $user->check_logged_in()) {
+            header("Location:" . ROOT . "loginReg");
             die;
         }
 
         $data['page_title'] = "Edit Freelancer Profile";
 
         //Load freelancerProfileModel
-        if(isset($_POST['editFreelancer'])) {
+        if (isset($_POST['editFreelancer'])) {
             $editFreelancerProfile = $this->loadModel("freelancerProfileModel");
 
-            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 // Sanitize POST data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -33,13 +32,12 @@ Class editFreelancerProfile extends Controller
         }
 
         //Contact Information
-        $freelancerTable=$user->viewProfile($_SESSION["Usertype"] == 1, 'freelancers');
+        $freelancerTable = $user->viewProfile($_SESSION["Usertype"] == 1, 'freelancers');
         $data['freelancerTable'] = $freelancerTable;
 
 
+        $this->view("editFreelancerProfileView", $data);
 
-        $this->view("editFreelancerProfileView",$data);
-
-	}
+    }
 
 }

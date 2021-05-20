@@ -1,11 +1,11 @@
 <?php
 
-Class About extends Controller
+class About extends Controller
 {
-	function index()
-	{
-		$data['page_title'] = "About";
-		$this->view("aboutView",$data);
-	}
+    function index()
+    {
+        $data['page_title'] = "About";
+        $this->view("aboutView", $data);
+    }
 
 }
