@@ -305,5 +305,71 @@ class projectModel
 
     }
 
+    //Project Application Page
+
+    function checkApplied()
+    {
+        if (isset($_SESSION["Username"]) && isset($_SESSION["projectID"])) {
+
+            $query = "SELECT * FROM applied WHERE projectID= :projectID and f_username= :f_username ";
+
+            $arr['projectID'] = $_SESSION["projectID"];
+            $arr['f_username'] = $_SESSION["Username"];
+
+            $DB = new Database();
+            $data = $DB->read($query, $arr);
+            if (is_array($data)) {
+
+                $_SESSION["appliedMSG"] = "<h3>You have already applied for this job. You cannot apply again.</h3> <br> <br>";
+                return $data[0];
+
+            } else {
+
+                $_SESSION["appliedMSG"] = "";
+            }
+
+        } else {
+
+            header("location:" . ROOT . "home");
+        }
+
+        return false;
+
+    }
+
+    function applyForProjectSQL($POST)
+    {
+        if (isset($_SESSION["Username"]) && isset($POST["applyProject"]) && $_SESSION["Usertype"] == 1) {
+
+
+            if ($_SESSION["appliedMSG"] == "") {
+
+                $arr['freelancerID'] = $_SESSION["freelancerID"];
+                $arr['f_username'] = $_SESSION["Username"];
+                $arr['projectID'] = $_SESSION["projectID"];
+                $arr['coverLetter'] = $_POST["coverLetter"];
+                $arr['bidPrice'] = $_POST["bidPrice"];
+
+                $query = "INSERT INTO applied (freelancerID, f_username, projectID, bidPrice, coverLetter) VALUES (:freelancerID, :f_username, :projectID, :bidPrice,:coverLetter)";
+
+                $DB = new Database();
+                $data = $DB->write($query, $arr);
+                if (is_array($data)) {
+
+                    header("location:" . ROOT . "browseProjects");
+//                    die;
+                    return $data[0];
+                }
+            }
+
+        } else {
+
+            header("location:" . ROOT . "home");
+        }
+
+        return false;
+
+    }
+
 
 }

@@ -51,7 +51,6 @@ class User
 
             $arr['user_name'] = $POST['username'];
             $password = $POST['password'];
-
             $query = "select * from clients where username = :user_name limit 1";
             $data = $DB->read($query, $arr);
 
