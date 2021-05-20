@@ -19,18 +19,24 @@ class User
         } elseif (isset($POST['login']) && $POST['usertype'] === "freelancers") { //START FREELANCER LOGIN
 
             $arr['user_name'] = $POST['username'];
-            $arr['password'] = md5($POST['password']);
+            $password = $POST['password'];
 
-            $query = "select * from freelancers where username = :user_name && password = :password limit 1";
+            $query = "select * from freelancers where username = :user_name limit 1";
             $data = $DB->read($query, $arr);
-            if (is_array($data)) {
-                //logged in
-                $_SESSION['freelancerID'] = $data[0]->freelancerID;
-                $_SESSION['Username'] = $data[0]->username;
-                $_SESSION['Usertype'] = 1;
 
-                header("Location:" . ROOT . "freelancersProfile");
-                die;
+            $hashedPassword = $data[0]->password;
+
+            if (password_verify($password, $hashedPassword)) {
+
+                if (is_array($data)) {
+                    //logged in
+                    $_SESSION['freelancerID'] = $data[0]->freelancerID;
+                    $_SESSION['Username'] = $data[0]->username;
+                    $_SESSION['Usertype'] = 1;
+
+                    header("Location:" . ROOT . "freelancersProfile");
+                    die;
+                }
 
             } else {
 
@@ -44,18 +50,24 @@ class User
         } elseif (isset($POST['login']) && $POST['usertype'] === "clients") { //START CLIENT LOGIN
 
             $arr['user_name'] = $POST['username'];
-            $arr['password'] = md5($POST['password']);
+            $password = $POST['password'];
 
-            $query = "select * from clients where username = :user_name && password = :password limit 1";
+            $query = "select * from clients where username = :user_name limit 1";
             $data = $DB->read($query, $arr);
-            if (is_array($data)) {
-                //logged in
-                $_SESSION['clientID'] = $data[0]->clientID;
-                $_SESSION['Username'] = $data[0]->username;
-                $_SESSION['Usertype'] = 2;
 
-                header("Location:" . ROOT . "clientsProfile");
-                die;
+            $hashedPassword = $data[0]->password;
+
+            if (password_verify($password, $hashedPassword)) {
+
+                if (is_array($data)) {
+                    //logged in
+                    $_SESSION['clientID'] = $data[0]->clientID;
+                    $_SESSION['Username'] = $data[0]->username;
+                    $_SESSION['Usertype'] = 2;
+
+                    header("Location:" . ROOT . "clientsProfile");
+                    die;
+                }
 
             } else {
 
@@ -107,7 +119,7 @@ class User
                 $arr['fname'] = $POST['fname'];
                 $arr['sname'] = $POST['sname'];
                 $arr['email'] = $POST['email'];
-                $arr['password'] = md5($POST['password']);
+                $arr['password'] = password_hash($POST['password'], PASSWORD_DEFAULT);
 
                 //FREELANCER REGISTRATION SQL
                 $query = "insert into freelancers (username, fname, sname, email, password) values (:user_name, :fname, :sname, :email, :password)";
@@ -134,11 +146,13 @@ class User
                 $_SESSION['error'] = "This username is already taken.";
             } else {
 
+                $POST['email'] = filter_var($POST['email'], FILTER_VALIDATE_EMAIL);
+
                 $arr['user_name'] = $POST['username'];
                 $arr['fname'] = $POST['fname'];
                 $arr['sname'] = $POST['sname'];
                 $arr['email'] = $POST['email'];
-                $arr['password'] = md5($POST['password']);
+                $arr['password'] = password_hash($POST['password'], PASSWORD_DEFAULT);
 
                 //CLIENT REGISTRATION SQL
                 $query = "insert into clients (username, fname, sname, email, password) values (:user_name, :fname, :sname, :email, :password)";
