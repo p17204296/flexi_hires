@@ -98,7 +98,7 @@ $row = $data['freelancerTable'];//Freelancer details from table
               <form action="' . ROOT . 'projectDetails" method="post">
               <input type="hidden" name="viewClient" value="' . $row2->c_username . '">
               <td><input type="submit" class="btn" value="' . $row2->c_username . '"></td>
-              <td>' . date("Y-m-d", strtotime($row->timestamp)) . '</td>
+              <td>' . date("Y-m-d", strtotime($row2->timestamp)) . '</td>
               </tr>
               </form>
               ';
@@ -133,7 +133,7 @@ $row = $data['freelancerTable'];//Freelancer details from table
               <form action="' . ROOT . 'projectDetails" method="post">
               <input type="hidden" name="viewClient" value="' . $row3->c_username . '">
               <td><input type="submit" class="btn" value="' . $row3->c_username . '"></td>
-              <td>' . date("Y-m-d", strtotime($row->timestamp)) . '</td>
+              <td>' . date("Y-m-d", strtotime($row3->timestamp)) . '</td>
               </tr>
               </form>
               ';

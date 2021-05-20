@@ -92,7 +92,7 @@ $row = $data['clientTable'];//Client details from table
                 <tr>
                 <td>' . $row2->projectID . '</td>
                 <td><input type="submit" class="btn" value="' . $row2->projectTitle . '"></td>
-                <td>' . date("Y-m-d", strtotime($row->timestamp)) . '</td>
+                <td>' . date("Y-m-d", strtotime($row2->timestamp)) . '</td>
                 </tr>
                 </form>
                 ';
@@ -123,7 +123,7 @@ $row = $data['clientTable'];//Client details from table
                 <tr>
                 <td>' . $row3->projectID . '</td>
                 <td><input type="submit" class="btn" value="' . $row3->projectTitle . '"></td>
-                <td>' . date("Y-m-d", strtotime($row->timestamp)) . '</td>
+                <td>' . date("Y-m-d", strtotime($row3->timestamp)) . '</td>
                 </tr>
                 </form>
                 ';
@@ -158,7 +158,7 @@ $row = $data['clientTable'];//Client details from table
                 <form action="' . ROOT . 'clientsProfile" method="post">
                 <input type="hidden" name="viewFreelancer" value="' . $row4->f_username . '">
                 <td><input type="submit" class="btn" value="' . $row4->f_username . '"></td>
-                <td>' . date("Y-m-d", strtotime($row->timestamp)) . '</td>
+                <td>' . date("Y-m-d", strtotime($row4->timestamp)) . '</td>
                 </tr>
                 </form>
                 ';
@@ -193,7 +193,7 @@ $row = $data['clientTable'];//Client details from table
                 <form action="' . ROOT . 'clientsProfile" method="post">
                         <input type="hidden" name="viewFreelancer" value="' . $row5->f_username . '">
                         <td><input type="submit" class="btn" value="' . $row5->f_username . '"></td>
-                        <td>' . date("Y-m-d", strtotime($row->timestamp)) . '</td>
+                        <td>' . date("Y-m-d", strtotime($row5->timestamp)) . '</td>
                     </tr>
                 </form>
                 ';
