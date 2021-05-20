@@ -90,7 +90,6 @@ $this->view("partialsHeader", $data);
                                 <td>Client ID</td>
                                 <td>Posted on</td>
                             </tr>
-                            <p> projectId Post: <?= $_SESSION["projectID"]; ?></p>
                             <?php
                             if (is_array($data['browseProjectsTable'])):
                                 foreach ($data['browseProjectsTable'] as $row):
