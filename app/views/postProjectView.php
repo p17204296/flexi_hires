@@ -41,13 +41,6 @@ $this->view("partialsHeader", $data);
                     </div>
                 </div>
 
-                <!-- <div class="form-group">
-                    <label class="col-sm-4 control-label">Required Skills</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" name="skills" value="" />
-                    </div>
-                    </div> -->
-
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Deadline</label>
                     <div class="col-sm-5">

@@ -39,6 +39,11 @@ a{
   text-align: right;
 }
 
+.left-align-text{
+  text-align: left;
+}
+
+
 .container{
   width: 97%;
   margin: 0 auto;
@@ -381,10 +386,16 @@ nav a:hover::after{
 
 .about-us h2{
   margin: 0%;
+  ;
 }
 
-.about-us p{
+.about-us h4{
+padding-bottom: 1%;
+  padding-top: 2%;
+}
 
+.about-us{
+  background-color: #ffffff
 }
 
 .about-para{

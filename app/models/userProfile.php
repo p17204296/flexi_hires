@@ -233,10 +233,6 @@ class userProfile
 
     function register($POST)
     {
-//        $user_name = $POST['username'];
-//        $password = $POST['password'];
-//        $repassword = $POST['repassword'];
-
         $DB = new Database();
 
         $_SESSION['error'] = "";

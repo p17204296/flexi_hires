@@ -34,7 +34,7 @@ class App
     }
 
     private function splitURL()
-    {   //if
+    {
         $url = isset($_GET['url']) ? $_GET['url'] : "home";
         //Explode converts string to array and splits between '/' character
         return explode("/", filter_var(trim($url, "/"), FILTER_SANITIZE_URL));

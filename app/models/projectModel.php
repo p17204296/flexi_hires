@@ -357,7 +357,6 @@ class projectModel
                 if (is_array($data)) {
 
                     header("location:" . ROOT . "browseProjects");
-//                    die;
                     return $data[0];
                 }
             }

@@ -26,8 +26,6 @@ if (!isset($_SESSION["Username"])){ //If not Logged in Then DO..
             <ul class="navbar">
                 <li><a href='<?= ROOT ?>home'>Home</a></li>
                 <li><a href='<?= ROOT ?>browseProjects'>Browse Projects</a></li>
-                <li><a href='#myProjects'>My Projects</a></li>
-                <li><a href='#'>Messages</a></li>
                 <li><a href='<?= ROOT ?>freelancersProfile'>My Profile</a></li>
                 <li><a href='<?= ROOT ?>logout'>Logout</a></li>
             </ul>
@@ -41,10 +39,8 @@ if (!isset($_SESSION["Username"])){ //If not Logged in Then DO..
             <nav id="menu" class="right-align-text">
                 <ul class="navbar">
                     <li><a href='<?= ROOT ?>home'>Home</a></li>
-                    <li><a href='#'>Explore Freelancers</a></li>
                     <li><a href='<?= ROOT ?>browseProjects'>Browse Projects</a></li>
                     <li><a href='<?= ROOT ?>postProject'>Post a Project</a></li>
-                    <li><a href='#'>Messages</a></li>
                     <li><a href='<?= ROOT ?>clientsProfile'>My Profile</a></li>
                     <li><a href='<?= ROOT ?>logout'>Logout</a></li>
                 </ul>
